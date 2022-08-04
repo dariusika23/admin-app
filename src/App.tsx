@@ -1,9 +1,11 @@
 import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { SignInView } from "./components/SignInView";
 
 function App() {
 	return (
 		<>
-			<h1>Hello World</h1>
+			<SignInView />
 		</>
 	);
 }
