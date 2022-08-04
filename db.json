@@ -1,0 +1,22 @@
+{
+    "users": [
+        {
+            "id": "1",
+            "username": "John Doe",
+            "email": "johndoe@example.com",
+            "password": "123456"
+        },
+        {
+            "id": "2",
+            "username": "John Snow",
+            "email": "johnsnow@example.com",
+            "password": "snow123456"
+        },
+        {
+            "id": "3",
+            "username": "John Smith",
+            "email": "johnsmith@example.com",
+            "password": "superpassword123"
+        }
+    ]
+}
