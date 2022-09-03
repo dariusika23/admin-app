@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { User } from "./User";
 
 export const SignInView = () => {
+	const [user, setUser] = useState<User>({});
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		const person: User = { email, password };
+	};
+
 	return (
 		<Container className="py-5 h-100">
 			<Row className="d-flex justify-content-center align-items-center h-100">
@@ -15,14 +23,24 @@ export const SignInView = () => {
 									Please enter your login and password!
 								</p>
 
-								<Form>
+								<Form onSubmit={handleSubmit}>
 									<Form.Group className="mb-4">
-										<Form.Control type="email" placeholder="Enter email" />
+										<Form.Control
+											required
+											type="email"
+											placeholder="Enter email"
+											value={user.email}
+										/>
 										<Form.Label>Email</Form.Label>
 									</Form.Group>
 
 									<Form.Group className="mb-4">
-										<Form.Control type="password" placeholder="Password" />
+										<Form.Control
+											required
+											type="password"
+											placeholder="Password"
+											value={user.password}
+										/>
 										<Form.Label>Password</Form.Label>
 									</Form.Group>
 									<p className="small mb-5 pb-lg-2">

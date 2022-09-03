@@ -1,10 +1,12 @@
 import React from "react";
-import { NavigationBar } from "../components/NavigationBar";
+import { Container } from "react-bootstrap";
 
 export const HomePage = () => {
 	return (
 		<>
-			<NavigationBar />
+			<Container className="py-2">
+				<h1>Home</h1>
+			</Container>
 		</>
 	);
 };
