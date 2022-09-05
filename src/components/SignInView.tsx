@@ -6,10 +6,10 @@ import { User } from "./User";
 export const SignInView = () => {
 	const [user, setUser] = useState<User>({});
 
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		const person: User = { email, password };
-	};
+	// const handleSubmit = (e) => {
+	// 	e.preventDefault();
+	// 	const person: User = { email, password };
+	// };
 
 	return (
 		<Container className="py-5 h-100">
@@ -23,7 +23,7 @@ export const SignInView = () => {
 									Please enter your login and password!
 								</p>
 
-								<Form onSubmit={handleSubmit}>
+								<Form>
 									<Form.Group className="mb-4">
 										<Form.Control
 											required

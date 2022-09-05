@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Container, Nav, Navbar } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 
 export const NavigationBar = () => {
@@ -12,12 +12,12 @@ export const NavigationBar = () => {
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
 				<Navbar.Collapse id="basic-navbar-nav">
 					<Nav className="me-auto">
-						<LinkContainer to={"/login"}>
+						{/* <LinkContainer to={"/login"}>
 							<Nav.Link>Log-in</Nav.Link>
 						</LinkContainer>
 						<LinkContainer to={"/register"}>
 							<Nav.Link>Register</Nav.Link>
-						</LinkContainer>
+						</LinkContainer> */}
 						<LinkContainer to={"/user"}>
 							<Nav.Link>User</Nav.Link>
 						</LinkContainer>
