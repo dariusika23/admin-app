@@ -30,28 +30,34 @@ interface Apartment {
 
 export const AdminPage = () => {
 	const [apartments, setApartments] = useState<Apartment[]>([]);
-	const { token } = useTokenState();
+	// const { token } = useTokenState();
 
 	useEffect(() => {
 		async function load() {
-			const res = await loadAllApartments(token);
+			const res = await loadAllApartments("1");
 			if (res.ok) {
 				setApartments(await res.json());
 			}
 		}
 
 		load();
-	}, [token]);
+	}, []);
 
 	const apartmentsView = apartments.map(ap => {
 		return <tr key={ap.id}>
 			<td>{ap.id}</td>
 			<td>{ap.name}</td>
 			<td>{ap.personumber}</td>
-			<td>{ap.name}</td>
-			<td>{ap.name}</td>
+			<td>{ap.hotwater1}</td>
+			<td>{ap.hotwater2}</td>
+			<td>{ap.coldwater1}</td>
+			<td>{ap.coldwater2}</td>
+			<td>{ap.electricity}</td>
+			<td>{ap.trash}</td>
 		</tr>
 	})
+
+	// TO-DO: react bootstrap data-tables
 	return (
 		<>
 			<Container className="py-2">
@@ -77,59 +83,10 @@ export const AdminPage = () => {
 						<th colSpan={2}>Penalizari</th>
 						<th>Total</th>
 						<th>Nr. Ap.</th>
-						</tr>
-						
+						</tr>						
 					</thead>
 					<tbody>
-						<tr>
-						<td>1</td>
-						<td>Mark Otto</td>
-						<td>1</td>
-						<td>21</td>
-						<td>213</td>
-						<td>213</td>
-						<td>213</td>
-						<td>211321</td>
-						<td>2113</td>
-						<td>22323</td>
-						<td>22413</td>
-						<td>1413</td>
-						<td>13</td>
-						<td>10</td>
-						<td>10</td>
-						<td>1036</td>
-						<td>103656</td>
-						<td>56</td>
-						<td>5</td>
-						<td>5</td>
-						<td>1</td>
-						</tr>
-						<tr>
-						<td>2</td>
-						<td>Mark Blanks</td>
-						<td>1</td>
-						<td>21</td>
-						<td>213</td>
-						<td>213</td>
-						<td>213</td>
-						<td>211321</td>
-						<td>2113</td>
-						<td>22323</td>
-						<td>22413</td>
-						<td>1413</td>
-						<td>13</td>
-						<td>10</td>
-						<td>10</td>
-						<td>1036</td>
-						<td>103656</td>
-						<td>56</td>
-						<td>5</td>
-						<td>5</td>
-						<td>2</td>
-						</tr>
-						<tr>
-
-						</tr>
+						{apartmentsView}
 					</tbody>
 				</Table>
 			</Container>
