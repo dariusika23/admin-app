@@ -1,15 +1,31 @@
-import React from "react";
-<<<<<<< HEAD
+import React, { useState } from "react";
 import { Table } from "react-bootstrap";
-=======
->>>>>>> 7310b48d0ca88ea827b786657f8641d39f354496
 import Container from "react-bootstrap/esm/Container";
+
+async function getAdminData() {
+	const path = `http://localhost:5000/apartments?id=1`;
+
+	const response = await fetch(path, {
+		method: 'GET',
+		mode: 'cors',
+		cache: 'no-cache',
+		credentials: 'same-origin',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		redirect: 'follow',
+		referrerPolicy: 'no-referrer'
+	});
+
+	return response;
+}
+
+// TO-DO: loop through entries, show the same template using state and the same method
 
 export const AdminPage = () => {
 	return (
 		<>
 			<Container className="py-2">
-<<<<<<< HEAD
 				{/* Admin Page */}
 				<Table striped bordered hover>
 					<thead>
@@ -84,9 +100,6 @@ export const AdminPage = () => {
 						</tr>
 					</tbody>
 				</Table>
-=======
-				<h1>ADMIN</h1>
->>>>>>> 7310b48d0ca88ea827b786657f8641d39f354496
 			</Container>
 		</>
 	);

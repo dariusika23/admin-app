@@ -18,5 +18,58 @@
             "email": "johnsmith@example.com",
             "password": "superpassword123"
         }
+    ],
+    "admins" : [
+        {
+            "id": 1,
+            "username": "Admin Joe",
+            "email": "admin@gmail.com",
+            "password": "1234"
+        },
+        {
+            "id": 2,
+            "username": "Admin Jane",
+            "email": "admina@gmail.com",
+            "password": "1234"
+        }
+    ],
+    "blocks" : [
+        {
+            "id": 1,
+            "blockname": "560 A",
+            "address": "Arad, Micalaca",
+            "apartments": 10
+        },
+        {
+            "id": 2,
+            "blockname": "560 B",
+            "address": "Arad, Micalaca",
+            "apartments": 10
+        }
+    ],
+    "apartments" : [
+        {
+            "id": 1,
+            "blockid": 1,
+            "userid": 1,
+            "name": "Radulescu Ioan",
+            "personumber": 2,
+            "hotwater1": 213,
+            "hotwater2": 222,
+            "coldwater1": 200,
+            "coldwater2": 320,
+            "electricity": 123,
+            "trash": 12,
+            "adminsalary": 12,
+            "subscriptions": 13,
+            "intercom": 1,
+            "misc": 1234,
+            "waterclocks": 12,
+            "repairs": 9,
+            "totalmonth": 1231455,
+            "remaining": 12,
+            "penalties": 10,
+            "total": 12131241412421
+        }
     ]
 }
