@@ -1,28 +1,57 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import Container from "react-bootstrap/esm/Container";
+import { loadAllApartments } from "../api/Backend";
 
-async function getAdminData() {
-	const path = `http://localhost:5000/apartments?id=1`;
-
-	const response = await fetch(path, {
-		method: 'GET',
-		mode: 'cors',
-		cache: 'no-cache',
-		credentials: 'same-origin',
-		headers: {
-			'Content-Type': 'application/json'
-		},
-		redirect: 'follow',
-		referrerPolicy: 'no-referrer'
-	});
-
-	return response;
+interface Apartment {
+	id?: number;
+	blockid?: number;
+    userid?: number;
+    name?: string;
+    personumber?: number;
+    hotwater1?: number;
+    hotwater2?: number;
+    coldwater1?: number;
+    coldwater2?: number;
+    electricity?: number;
+    trash?: number;
+    adminsalary?: number;
+    subscriptions?: number;
+    intercom?: number;
+    misc?: number;
+    repairs?: number;
+    totalmonth?: number;
+	remaining?: number;
+    penalties?: number;
+    total?: number
 }
 
 // TO-DO: loop through entries, show the same template using state and the same method
 
 export const AdminPage = () => {
+	const [apartments, setApartments] = useState<Apartment[]>([]);
+	const { token } = useTokenState();
+
+	useEffect(() => {
+		async function load() {
+			const res = await loadAllApartments(token);
+			if (res.ok) {
+				setApartments(await res.json());
+			}
+		}
+
+		load();
+	}, [token]);
+
+	const apartmentsView = apartments.map(ap => {
+		return <tr key={ap.id}>
+			<td>{ap.id}</td>
+			<td>{ap.name}</td>
+			<td>{ap.personumber}</td>
+			<td>{ap.name}</td>
+			<td>{ap.name}</td>
+		</tr>
+	})
 	return (
 		<>
 			<Container className="py-2">
@@ -97,6 +126,9 @@ export const AdminPage = () => {
 						<td>5</td>
 						<td>5</td>
 						<td>2</td>
+						</tr>
+						<tr>
+
 						</tr>
 					</tbody>
 				</Table>
