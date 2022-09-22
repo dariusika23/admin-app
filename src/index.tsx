@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
@@ -11,6 +12,20 @@ root.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
+=======
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+
+const root = ReactDOM.createRoot(
+	document.getElementById("root") as HTMLElement
+);
+root.render(
+	<React.StrictMode>
+		<App />
+	</React.StrictMode>
+>>>>>>> 81da6e77e3e246b653b28fad8b5343f00bc797ef
 );
 
 // If you want to start measuring performance in your app, pass a function
