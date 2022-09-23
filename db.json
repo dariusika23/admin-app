@@ -1,38 +1,4 @@
 {
-<<<<<<< HEAD
-  "users": [
-    {
-      "username": "admin",
-      "password": "admin",
-      "createdAt": 1662242155446,
-      "id": "=r6WdV7U"
-    },
-    {
-      "username": "darius",
-      "password": "darius123",
-      "extraField": "extraField",
-      "createdAt": 1663670810442,
-      "id": "2HdfWJq"
-    }
-  ],
-  "product": [
-    {
-      "id": 1,
-      "name": "Laptop",
-      "picture": "https://p1.akcdn.net/full/812625993.microsoft-surface-laptop-4-5bt-00069.jpg"
-    },
-    {
-      "id": 2,
-      "name": "Inel",
-      "picture": "https://p1.akcdn.net/full/812625993.microsoft-surface-laptop-4-5bt-00069.jpg"
-    },
-    {
-      "id": 3,
-      "name": "Masina",
-      "picture": "https://p1.akcdn.net/full/812625993.microsoft-surface-laptop-4-5bt-00069.jpg"
-    }
-  ]
-=======
     "users": [
         {
             "id": "1",
@@ -149,5 +115,4 @@
             "total": 12412421
         }
     ]
->>>>>>> 81da6e77e3e246b653b28fad8b5343f00bc797ef
 }
