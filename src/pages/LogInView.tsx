@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { useTokenState } from "./TokenContext";
 
 async function login(username: string, password: string) {
     const path = `http://localhost:5000/users?username=${username}&password=${password}`;
@@ -21,9 +23,23 @@ async function login(username: string, password: string) {
 export const LogInView = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [message, setMessage] = useState("");
+    
+    const { token, setToken } = useTokenState();
 
     const handleSubmit = async () => {
         const result = await login(username, password);
+        if (!result.ok) {
+            setMessage("Invalid username or password");
+        }
+
+        const body = await result.json();
+        if (body.length > 0) {
+            setMessage("User logged in");
+            setToken(body[0].id);
+        } else {
+            setMessage("Invalid username or password");
+        }
     }
 
     return (
@@ -58,8 +74,9 @@ export const LogInView = () => {
                             </button>
                         </div>
                         <p className="forgot-password text-right mt-2">
-                            Forgot <a href="#">password?</a>
+                            Not <Link to="/register">registered?</Link>
                         </p>
+                        <p>{message}</p>
                     </div>
                 </form>
             </div>
