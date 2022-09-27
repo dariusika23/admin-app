@@ -39,6 +39,43 @@
       "email": "admin2@gam.com",
       "createdAt": 1664283691366,
       "id": "0-mIXnQ"
+    },
+    {
+      "username": "adm",
+      "password": "adm",
+      "email": "adm@aaaa.com",
+      "createdAt": 1664293134380,
+      "id": "D8lr5KH"
+    },
+    {
+      "username": "call",
+      "password": "call",
+      "email": "call@ca.com",
+      "createdAt": 1664293187489,
+      "id": "OARQzQb"
+    },
+    {
+      "username": "caaa",
+      "password": "caa",
+      "email": "caaa@dsasda.com",
+      "createdAt": 1664293210857,
+      "id": "JkYmLP1"
+    },
+    {
+      "username": "",
+      "password": "",
+      "email": "",
+      "isAdminChecked": false,
+      "createdAt": 1664293462244,
+      "id": "v6DKlYp"
+    },
+    {
+      "username": "daaaaaa",
+      "password": "sadsadasdas",
+      "email": "daaaa@gppp.com",
+      "isAdminChecked": true,
+      "createdAt": 1664293506282,
+      "id": "LGFVflf"
     }
   ],
   "admins": [

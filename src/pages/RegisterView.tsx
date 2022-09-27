@@ -34,8 +34,9 @@ export const RegisterView = () => {
 	const [isAdminChecked, setIsAdminChecked] = useState(false);
 	const [message, setMessage] = useState("");
 
-	const handleRegister = () => {
-		const result = createAccount(username, password, email);
+	const handleRegister = (e: any) => {
+		e.preventDefault();
+		const result = createAccount(username, password, email, isAdminChecked);
 		result.then(response => {
 			if (response.ok) {
 				setMessage("Account created successfully");
@@ -82,7 +83,7 @@ export const RegisterView = () => {
 					</div>
 					<div className="form-group mt-1">
 						<input type="checkbox" className="mr-2" id="isAdminCheckbox" defaultChecked={isAdminChecked} onChange={() => setIsAdminChecked(!isAdminChecked)}/>
-						<label htmlFor="isAdminCheckbox">is Administrator?</label>
+						<label htmlFor="isAdminCheckbox">Administrator?</label>
 					</div>
 					<div className="d-grid gap-2 mt-3">
 						<button className="btn btn-primary" onClick={handleRegister}>

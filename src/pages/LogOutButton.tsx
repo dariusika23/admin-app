@@ -1,12 +1,12 @@
-import { useTokenState } from "./TokenContext";
+import { useUserState } from "./UserContext";
 
 export const LogOutButton = () => {
-    const { setToken } = useTokenState();
+    const { setUser: setToken } = useUserState();
     const handleLogout = async () => {
         setToken("");
     }
 
     return <>
-        <button onClick={handleLogout}>Logout</button>
+        <button className="btn btn-danger" onClick={handleLogout}>Logout</button>
     </>
 }

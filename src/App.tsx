@@ -1,18 +1,20 @@
 import { Route, Routes } from "react-router";
 import { BrowserRouter } from "react-router-dom";
+import { Navbar } from "./components/Navbar";
 import { AdminView } from "./pages/AdminView";
 import { HomeView } from "./pages/HomeView";
 import { RegisterView } from "./pages/RegisterView";
-import { TokenProvider } from "./pages/TokenContext";
+import { UserProvider } from "./pages/UserContext";
 import { UserView } from "./pages/UserView";
 
 
 function App() {
   return (
     <>
-    <TokenProvider>
-      <h1>My App Token Provider</h1>
+    <UserProvider>
+      {/* <h1>My App Token Provider</h1> */}
       <BrowserRouter>
+        <Navbar />
         <Routes>
           <Route path="/" element={<HomeView />}/>
           <Route path="/register" element={<RegisterView />}/>
@@ -20,7 +22,7 @@ function App() {
           <Route path="/admins/:adminId" element={<AdminView />}/>
         </Routes>
       </BrowserRouter>
-    </TokenProvider>
+    </UserProvider>
     </>
   );
 }

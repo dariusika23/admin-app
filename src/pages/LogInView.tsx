@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useTokenState } from "./TokenContext";
+import { useUserState as useUserState } from "./UserContext";
 
 async function login(username: string, password: string) {
     const path = `http://localhost:5000/users?username=${username}&password=${password}`;
@@ -25,9 +25,10 @@ export const LogInView = () => {
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState("");
     
-    const { token, setToken } = useTokenState();
-
-    const handleSubmit = async () => {
+    const { user, setUser } = useUserState();
+    
+    const handleSubmit = async (e: any) => {
+        e.preventDefault();
         const result = await login(username, password);
         if (!result.ok) {
             setMessage("Invalid username or password");
@@ -36,7 +37,7 @@ export const LogInView = () => {
         const body = await result.json();
         if (body.length > 0) {
             setMessage("User logged in");
-            setToken(body[0].id);
+            setUser(body[0]);
         } else {
             setMessage("Invalid username or password");
         }
