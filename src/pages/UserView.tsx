@@ -3,7 +3,6 @@ import { ProtectedView } from "./ProtectedView"
 import { useUserState } from "./UserContext"
 
 export const UserView = () => {
-    const { user } = useUserState();
 
     return (
         <ProtectedView>

@@ -2,7 +2,7 @@ import { useUserState } from "./UserContext";
 
 export const LogOutButton = () => {
     const { setUser } = useUserState();
-    const handleLogout = async () => {
+    const handleLogout = () => {
         setUser({ id: "", username: "", email: "", password: "", isAdminChecked: false, isUser: false });
     }
 

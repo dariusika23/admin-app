@@ -4,8 +4,6 @@ import { UserView } from "./UserView";
 
 export const HomeView = () => {
 
-    const { user } = useUserState();
-    const isAdmin = user.isAdminChecked;
     
     return (
         <>
