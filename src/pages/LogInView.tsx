@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useUserState as useUserState } from "./UserContext";
+import { useUserState } from "./UserContext";
 
 async function login(username: string, password: string) {
     const path = `http://localhost:5000/users?username=${username}&password=${password}`;
@@ -38,6 +38,7 @@ export const LogInView = () => {
         if (body.length > 0) {
             setMessage("User logged in");
             setUser(body[0]);
+            console.log(user);
         } else {
             setMessage("Invalid username or password");
         }

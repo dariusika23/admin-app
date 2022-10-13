@@ -2,8 +2,9 @@ import { Link } from "react-router-dom"
 import { useUserState } from "../pages/UserContext";
 
 export const Navbar = () => {    
-    const { user } = useUserState();
-    
+    const { user } = useUserState();    
+    const adminDashboardLink = user.isAdminChecked ? <><li className="nav-item"><Link to={"/admins/" + user.id} className="nav-link">Admin Dashboard</Link></li></> : null;
+
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -16,6 +17,7 @@ export const Navbar = () => {
                         <li className="nav-item active">
                             <Link to="/" className="nav-link">Home <span className="sr-only">(current)</span></Link>
                         </li>
+                        {adminDashboardLink}
                         {/* <li className="nav-item">
                             <Link to={"/users/" + token } className="nav-link">User View</Link>
                         </li>

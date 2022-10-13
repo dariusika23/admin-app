@@ -1,12 +1,11 @@
 import { LogInView } from "./LogInView";
 import { useUserState } from "./UserContext";
-import { UserView } from "./UserView";
 
-export const ProtectedView = (props: {adminOnly?: boolean, userOnly?: boolean, children: any}) => {
-    const isAdmin = props.adminOnly;
-    const isUser = props.userOnly;
+export const ProtectedView = (props: any) => {
     const { user } = useUserState();
-    const view = user === "" ? <LogInView /> : props.children;
+    
+    const view = user.id === "" ? <LogInView /> : props.children;
+
     return <>
         {view}
     </>

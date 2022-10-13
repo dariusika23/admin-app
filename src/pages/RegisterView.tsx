@@ -7,7 +7,8 @@ async function createAccount(username: string, password: string, email?: string,
 		username,
 		password,
 		email,
-		isAdminChecked
+		isAdminChecked,
+		isUser: true
 	}
 
 	const response = await fetch(path, {

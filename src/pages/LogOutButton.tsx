@@ -1,12 +1,16 @@
 import { useUserState } from "./UserContext";
 
 export const LogOutButton = () => {
-    const { setUser: setToken } = useUserState();
+    const { setUser } = useUserState();
     const handleLogout = async () => {
-        setToken("");
+        setUser({ id: "", username: "", email: "", password: "", isAdminChecked: false, isUser: false });
     }
 
     return <>
-        <button className="btn btn-danger" onClick={handleLogout}>Logout</button>
+        <div className="row">
+            <div className="container">
+                <button className="btn btn-danger" onClick={handleLogout}>Logout</button>
+            </div>
+        </div>
     </>
 }

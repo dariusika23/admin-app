@@ -4,78 +4,61 @@
       "id": "1",
       "username": "admin",
       "email": "johndoe@example.com",
-      "password": "admin"
+      "password": "admin",
+      "isUser": true,
+      "isAdminChecked": true
     },
     {
       "id": "2",
       "username": "John Snow",
       "email": "johnsnow@example.com",
+      "isUser": true,
+      "isAdminChecked": false,
       "password": "snow123456"
     },
     {
       "id": "3",
       "username": "John Smith",
       "email": "johnsmith@example.com",
+      "isAdminChecked": false,
+      "isUser": true,
       "password": "superpassword123"
     },
     {
       "username": "Darius",
       "password": "darius.123",
       "email": "darius.m@sam.com",
-      "extraField": "extraField",
+      "isAdminChecked": false,
       "createdAt": 1664189357959,
+      "isUser": true,
       "id": "CpBomCJ"
     },
     {
       "username": "admin1",
       "password": "admin1",
       "email": "admin1@123.com",
+      "isAdminChecked": true,
       "createdAt": 1664283651738,
+      "isUser": true,
       "id": "wWWADNi"
     },
     {
       "username": "admin2",
       "password": "admin2",
       "email": "admin2@gam.com",
+      "isAdminChecked": true,
       "createdAt": 1664283691366,
+      "isUser": true,
       "id": "0-mIXnQ"
     },
     {
       "username": "adm",
       "password": "adm",
       "email": "adm@aaaa.com",
+      "isUser": true,
+      "isAdminChecked": false,
       "createdAt": 1664293134380,
       "id": "D8lr5KH"
-    },
-    {
-      "username": "call",
-      "password": "call",
-      "email": "call@ca.com",
-      "createdAt": 1664293187489,
-      "id": "OARQzQb"
-    },
-    {
-      "username": "caaa",
-      "password": "caa",
-      "email": "caaa@dsasda.com",
-      "createdAt": 1664293210857,
-      "id": "JkYmLP1"
-    },
-    {
-      "username": "",
-      "password": "",
-      "email": "",
-      "isAdminChecked": false,
-      "createdAt": 1664293462244,
-      "id": "v6DKlYp"
-    },
-    {
-      "username": "daaaaaa",
-      "password": "sadsadasdas",
-      "email": "daaaa@gppp.com",
-      "isAdminChecked": true,
-      "createdAt": 1664293506282,
-      "id": "LGFVflf"
     }
   ],
   "admins": [
