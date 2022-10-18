@@ -7,10 +7,6 @@ export const LogOutButton = () => {
     }
 
     return <>
-        <div className="row">
-            <div className="container">
-                <button className="btn btn-danger" onClick={handleLogout}>Logout</button>
-            </div>
-        </div>
+        <a className="nav-link px-3" href="#" onClick={handleLogout}>Logout</a>
     </>
 }

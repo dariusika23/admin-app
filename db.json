@@ -115,7 +115,7 @@
     {
       "id": 2,
       "blockid": 1,
-      "userid": 1,
+      "userid": 2,
       "name": "Chifu Ioan",
       "personumber": 1,
       "hotwater1": 213,
@@ -137,7 +137,7 @@
     {
       "id": 3,
       "blockid": 1,
-      "userid": 1,
+      "userid": 3,
       "name": "Poler Jean",
       "personumber": 4,
       "hotwater1": 213,

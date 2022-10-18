@@ -5,17 +5,12 @@ import { ProtectedView } from "./ProtectedView"
 import { useUserState } from "./UserContext"
 
 export const AdminView = () => {
-
+    const {user, setUser} = useUserState();
 
     return (
         <ProtectedAdminView>
-                <div className="row">
-                    <div className="container">
-                        <h1>Admin View</h1>
-                    </div>
-                    <Dashboad />
-                </div>
-                <LogOutButton />
+            <Dashboad userId={user.id} isAdmin={user.isAdminChecked} blockId={1} />
+            <LogOutButton />
         </ProtectedAdminView>
     )
 }

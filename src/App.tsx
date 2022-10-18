@@ -14,7 +14,7 @@ function App() {
     <UserProvider>
       {/* <h1>My App Token Provider</h1> */}
       <BrowserRouter>
-        <Navbar />
+        {/* <Navbar /> */}
         <Routes>
           <Route path="/" element={<HomeView />}/>
           <Route path="/register" element={<RegisterView />}/>
