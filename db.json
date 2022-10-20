@@ -156,5 +156,81 @@
       "penalties": 10,
       "total": 12412421
     }
+  ],
+  "tenantAssociation": [
+    {
+      "id": 1,
+      "asocName": "adm",
+      "asocAddress": "asdasdasdas"
+    },
+    {
+      "id": 2,
+      "asocName": "adm",
+      "asocAddress": "asdasdasdas",
+      "createdAt": 1666284403354
+    },
+    {
+      "asocName": "adass",
+      "asocAddress": "asdasd",
+      "createdAt": 1666285420444,
+      "id": 3
+    },
+    {
+      "asocName": "asdasd",
+      "asocAddress": "sadassada",
+      "createdAt": 1666285458087,
+      "id": 4
+    },
+    {
+      "name": "asdasd",
+      "address": "sadassada",
+      "createdAt": 1666285552661,
+      "id": 5
+    },
+    {
+      "name": "asdasd",
+      "address": "sadassada",
+      "createdAt": 1666285557562,
+      "id": 6
+    },
+    {
+      "name": "asdasd",
+      "address": "sadassada",
+      "createdAt": 1666285558357,
+      "id": 7
+    },
+    {
+      "name": "asdasd",
+      "address": "sadassada",
+      "createdAt": 1666285558879,
+      "id": 8
+    },
+    {
+      "name": "asdasd",
+      "address": "sadassada",
+      "createdAt": 1666285559236,
+      "id": 9
+    },
+    {
+      "name": "asdasd",
+      "address": "sadassada",
+      "createdAt": 1666285559299,
+      "id": 10
+    }
+  ],
+  "apartment": [
+    {
+      "id": 1,
+      "tenantAssociationId": 1,
+      "name": "Ap 3",
+      "owner_id": 1
+    }
+  ],
+  "tenant": [
+    {
+      "id": 1,
+      "firstName": 1,
+      "name": "Ap 3"
+    }
   ]
 }
