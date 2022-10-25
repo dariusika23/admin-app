@@ -216,6 +216,12 @@
       "address": "sadassada",
       "createdAt": 1666285559299,
       "id": 10
+    },
+    {
+      "name": "ffff",
+      "address": "ffff",
+      "createdAt": 1666698867355,
+      "id": 11
     }
   ],
   "apartment": [
@@ -223,14 +229,183 @@
       "id": 1,
       "tenantAssociationId": 1,
       "name": "Ap 3",
-      "owner_id": 1
+      "ownerId": 1,
+      "personNumber": 1
+    },
+    {
+      "name": "dasda",
+      "ownerId": 1,
+      "createdAt": 1666714032679,
+      "id": 2
+    },
+    {
+      "name": "dasdasdsadasdasdsad",
+      "ownerId": 2,
+      "createdAt": 1666714056350,
+      "id": 3
+    },
+    {
+      "name": "new ap",
+      "ownerId": 2,
+      "createdAt": 1666715709023,
+      "id": 4
+    },
+    {
+      "name": "sasdadsa",
+      "ownerId": 2,
+      "createdAt": 1666715926957,
+      "id": 5
+    },
+    {
+      "name": "dassdasdasdsa",
+      "ownerId": "2",
+      "createdAt": 1666716047599,
+      "id": 6
+    },
+    {
+      "name": "asdasdasdasdasd",
+      "ownerId": 1,
+      "createdAt": 1666716634700,
+      "id": 7
+    },
+    {
+      "name": "new apartment 1",
+      "ownerId": 2,
+      "createdAt": 1666716748158,
+      "id": 8
+    },
+    {
+      "name": "ne ap",
+      "ownerId": 1,
+      "createdAt": 1666717496320,
+      "id": 9
+    },
+    {
+      "name": "dsadsa",
+      "ownerId": 1,
+      "createdAt": 1666717535583,
+      "id": 10
+    },
+    {
+      "name": "apartment",
+      "ownerId": 2,
+      "createdAt": 1666717546000,
+      "id": 11
+    },
+    {
+      "name": "amasr",
+      "ownerId": -1,
+      "createdAt": 1666717566736,
+      "id": 12
+    },
+    {
+      "name": "new apartment",
+      "ownerId": -1,
+      "createdAt": 1666717686288,
+      "id": 13
+    },
+    {
+      "name": "opartm",
+      "ownerId": -1,
+      "createdAt": 1666717706463,
+      "id": 14
+    },
+    {
+      "name": "home",
+      "ownerId": 1,
+      "createdAt": 1666717773705,
+      "id": 15
+    },
+    {
+      "name": "home",
+      "ownerId": 2,
+      "createdAt": 1666717788545,
+      "id": 16
+    },
+    {
+      "name": "adm",
+      "ownerId": 1,
+      "createdAt": 1666717812593,
+      "id": 17
+    },
+    {
+      "name": "new home",
+      "ownerId": -1,
+      "createdAt": 1666717886165,
+      "id": 18
+    },
+    {
+      "name": "new homi",
+      "ownerId": -1,
+      "createdAt": 1666718040962,
+      "id": 19
+    },
+    {
+      "name": "asdasdasdsasdas",
+      "ownerId": 2,
+      "createdAt": 1666718048592,
+      "id": 20
+    },
+    {
+      "name": "dasdasda",
+      "ownerId": 1,
+      "createdAt": 1666718113252,
+      "id": 21
+    },
+    {
+      "name": "dsadsadsa",
+      "ownerId": 2,
+      "createdAt": 1666718117747,
+      "id": 22
+    },
+    {
+      "name": "asdsadsa",
+      "ownerId": 1,
+      "createdAt": 1666718142293,
+      "id": 23
+    },
+    {
+      "name": "fgwgwegwegwegw",
+      "ownerId": 2,
+      "createdAt": 1666718155137,
+      "id": 24
+    },
+    {
+      "name": "asdasdadasdas",
+      "ownerId": -1,
+      "createdAt": 1666718162052,
+      "id": 25
+    },
+    {
+      "name": "asdasdadasdasdwqawfwegf23r231421q34123",
+      "ownerId": -1,
+      "createdAt": 1666718176930,
+      "id": 26
+    },
+    {
+      "name": "dasdasdaadsfqw122312312",
+      "ownerId": 1,
+      "createdAt": 1666718238006,
+      "id": 27
+    },
+    {
+      "name": "1231231321",
+      "ownerId": 2,
+      "createdAt": 1666718242183,
+      "id": 28
     }
   ],
   "tenant": [
     {
       "id": 1,
-      "firstName": 1,
-      "name": "Ap 3"
+      "firstName": "John",
+      "lastName": "Doe"
+    },
+    {
+      "firstName": "Dave",
+      "lastName": "Nan",
+      "createdAt": 1666711651687,
+      "id": 2
     }
   ]
 }

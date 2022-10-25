@@ -1,4 +1,4 @@
-import { Apartment } from "../components/Apartment"
+import { ApartmentView } from "../components/ApartmentView"
 import { ProtectedView } from "./ProtectedView"
 
 export const UserView = () => {
@@ -30,7 +30,7 @@ export const UserView = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        <Apartment />
+                        {/* <Apartment /> */}
                     </tbody>
                 </table>
             </div>

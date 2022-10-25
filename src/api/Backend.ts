@@ -50,7 +50,7 @@ export async function loadApartment(id: string, token: string) {
 	return await get("/apartments/" + id, token)
 }
 
-export function useAsyncEffect<T>(path: string, defaultValue: T): [T, () => void] {
+export function useAsyncState<T>(path: string, defaultValue: T): [T, () => void] {
 	const [state, setState] = useState<T>(defaultValue);
 	const [timeStamp, setTimeStamp] = useState(new Date().getTime());
 	const { user, setUser } = useUserState();

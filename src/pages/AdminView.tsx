@@ -1,12 +1,17 @@
-import { useAsyncEffect } from "../api/Backend"
-import { Apartment } from "../components/Apartment"
+import { useAsyncState } from "../api/Backend"
+import { Apartment } from "../api/Models"
+import { ApartmentView } from "../components/ApartmentView"
 import { Association } from "../components/Association"
 import { Form } from "../components/Form"
+import { Modal } from "../components/Modal"
 import { ProtectedView } from "./ProtectedView"
 
 export const AdminView = () => {
+
+    const [associations, reloadAssociations] = useAsyncState<Association[]>("/tenantAssociation", []);
+    const [apartments, reloadApartments] = useAsyncState<Apartment[]>("/apartment", []);
+
     
-    const [associations, reloadAssociations] = useAsyncEffect<Association[]>("/tenantAssociation", []);
 
     return (
         <ProtectedView>
@@ -14,7 +19,7 @@ export const AdminView = () => {
                 <h2 className="h2">Admin Dashboard</h2>
                 <div className="btn-toolbar mb-2 mb-md-0">
                     <div className="btn-group me-2">
-                        <button type="button" className="btn btn-sm btn-outline-secondary">Share</button>
+                        <button type="button" className="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#exampleModal">Launch Modal</button>
                         <button type="button" className="btn btn-sm btn-outline-secondary">Export</button>
                     </div>
                     <button type="button" className="btn btn-sm btn-outline-secondary dropdown-toggle">
@@ -24,23 +29,14 @@ export const AdminView = () => {
                 </div>
             </div>
 
-            <Form onNewEvent={() => reloadAssociations()}/>
+            <Modal onNewEvent={() => reloadApartments()} />
 
-            <h2>Tennants Associations</h2>
-            <div className="table-responsive">
-                <table className="table table-striped table-sm">
-                    <thead>
-                        <tr>
-                            <th scope="col">id</th>
-                            <th scope="col-2">Name</th>
-                            <th scope="col-9">Address</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <Association associations={associations}/>
-                    </tbody>
-                </table>
-            </div>
+            <Form onNewEvent={() => reloadAssociations()} />
+
+            <Association associations={associations} />
+
+            <ApartmentView apartments={apartments} />
+
         </ProtectedView>
     )
 }

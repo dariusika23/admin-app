@@ -16,19 +16,19 @@ export const Form = (props: {onNewEvent: () => void}) => {
     return (
         <>
             <div className="row g-5 mb-5">
-                <div className="col-md-7 col-lg-8">
+                <div className="col">
                     <h4 className="mb-3">Add new tennant association</h4>
                     <form action="">
-                        <div className="row g-3">
-                            <div className="col-sm-2">
+                        <div className="row">
+                            <div className="col-xs-12 col-sm-2">
                                 <label htmlFor="firstName" className="form-label">Name</label>
                                 <input type="text" name="firstName" id="firstName" className="form-control" value={asocName} onChange={e => setAsocName(e.target.value)} />
                             </div>
-                            <div className="col-sm-8">
+                            <div className="col-xs-12 col-sm-6">
                                 <label htmlFor="lastName" className="form-label">Address</label>
                                 <input type="text" name="lastName" id="lastName" className="form-control" value={asocAddress} onChange={e => setAsocAddress(e.target.value)}/>
                             </div>
-                            <div className="col-sm-2 mt-4">
+                            <div className="col-xs-12 col-sm-4 mt-4">
                                 <button className="btn btn-primary" onClick={handleAdd}>Add Association</button>
                             </div>
                         </div>
