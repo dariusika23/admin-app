@@ -11,3 +11,9 @@ export interface Tennant {
     firstName: string;
     lastName: string;
 }
+
+export interface TennantAssociation {
+    id: number;
+    name: string;
+    address: string;
+}

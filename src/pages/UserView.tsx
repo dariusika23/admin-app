@@ -1,4 +1,4 @@
-import { ApartmentView } from "../components/ApartmentView"
+import { ApartmentsView } from "../components/ApartmentsView"
 import { ProtectedView } from "./ProtectedView"
 
 export const UserView = () => {

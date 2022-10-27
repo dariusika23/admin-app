@@ -1,9 +1,12 @@
 import { useAsyncState } from "../api/Backend"
 import { Apartment } from "../api/Models"
+import { ApartmentCardView } from "../components/ApartmentCardView"
+import { ApartmentsView } from "../components/ApartmentsView"
 import { ApartmentView } from "../components/ApartmentView"
 import { Association } from "../components/Association"
 import { Form } from "../components/Form"
 import { Modal } from "../components/Modal"
+import { TennantCardView } from "../components/TennantCardView"
 import { ProtectedView } from "./ProtectedView"
 
 export const AdminView = () => {
@@ -31,11 +34,16 @@ export const AdminView = () => {
 
             <Modal onNewEvent={() => reloadApartments()} />
 
-            <Form onNewEvent={() => reloadAssociations()} />
+            {/* <Form onNewEvent={() => reloadAssociations()} />
 
             <Association associations={associations} />
 
-            <ApartmentView apartments={apartments} />
+            <ApartmentsView apartments={apartments} />
+
+            <TennantCardView /> */}
+
+
+            <ApartmentView />
 
         </ProtectedView>
     )
