@@ -40,7 +40,7 @@ const MapImpl = (props: { options: google.maps.MapOptions, children?: any }) => 
             map.setOptions(props.options);
         }
     }, [map, props.options]);
-    return <div ref={ref} style={{ width: "400px", height: "400px" }}>
+    return <div ref={ref} style={{ width: "336px", height: "450px" }}>
         {React.Children.map(props.children, (child) => {
             if (React.isValidElement(child)) {
                 // set the map prop on the child component

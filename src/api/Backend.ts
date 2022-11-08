@@ -26,7 +26,7 @@ export async function post(path: string, token: string, body: any) {
 	const fullUrl = `${BACKEND_URL}${path}`;
 
 	const response = await fetch(fullUrl, {
-		method: body.id !== undefined && body.id !== null ? 'PUT' : 'POST',
+		method: body.id !== undefined && body.id !== null ? 'PATCH' : 'POST',
 		mode: 'cors',
 		cache: 'no-cache',
 		credentials: 'same-origin',
@@ -39,6 +39,44 @@ export async function post(path: string, token: string, body: any) {
         body: JSON.stringify(body)
 	});
 
+	return response;
+};
+
+
+export async function login(username: string, password: string) {
+    const path = `http://localhost:5000/users?username=${username}&password=${password}`;
+
+    const response = await fetch(path, {
+        method: 'GET',
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'same-origin',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        redirect: 'follow',
+        referrerPolicy: 'no-referrer'
+    });
+
+    return response;
+};
+
+
+export async function createAccount(body: any) {
+	const path = `http://localhost:5000/users`;
+	
+	const response = await fetch(path, {
+		method: 'POST',
+		mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'same-origin',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        redirect: 'follow',
+        referrerPolicy: 'no-referrer',
+        body: JSON.stringify(body)
+	});
 	return response;
 };
 

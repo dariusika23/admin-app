@@ -1,32 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { createAccount } from "../api/Backend";
 
-async function createAccount(username: string, password: string, email?: string, isAdminChecked?: boolean) {
-	const path = `http://localhost:5000/users`;
-	const body = {
-		username,
-		password,
-		email,
-		isAdminChecked,
-		isUser: true
-	}
-
-	const response = await fetch(path, {
-		method: 'POST',
-		mode: 'cors',
-        cache: 'no-cache',
-        credentials: 'same-origin',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        redirect: 'follow',
-        referrerPolicy: 'no-referrer',
-        body: JSON.stringify(body)
-	});
-
-	return response;
-
-}
 
 export const RegisterView = () => {
 	const [username, setUsername] = useState("");
@@ -35,16 +10,22 @@ export const RegisterView = () => {
 	const [isAdminChecked, setIsAdminChecked] = useState(false);
 	const [message, setMessage] = useState("");
 
-	const handleRegister = (e: any) => {
+	const body = {
+		username,
+		password,
+		email,
+		isAdminChecked
+	}
+
+	const handleRegister = async (e: any) => {
 		e.preventDefault();
-		const result = createAccount(username, password, email, isAdminChecked);
-		result.then(response => {
-			if (response.ok) {
-				setMessage("Account created successfully");
-			} else {
-				setMessage("Failed to create account");
-			}
-		})
+		const result = await createAccount(body);
+		
+		if (result.ok) {
+			setMessage("Account created successfully");
+		} else {
+			setMessage("Failed to create account");
+		}
 	}
 
 	return (
@@ -83,7 +64,7 @@ export const RegisterView = () => {
 						/>
 					</div>
 					<div className="form-group mt-1">
-						<input type="checkbox" className="mr-2" id="isAdminCheckbox" defaultChecked={isAdminChecked} onChange={() => setIsAdminChecked(!isAdminChecked)}/>
+						<input type="checkbox" className="mr-2" id="isAdminCheckbox" defaultChecked={isAdminChecked} onChange={() => setIsAdminChecked(!isAdminChecked)} />
 						<label htmlFor="isAdminCheckbox">Administrator?</label>
 					</div>
 					<div className="d-grid gap-2 mt-3">

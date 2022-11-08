@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { Route, Routes } from "react-router";
 import { BrowserRouter } from "react-router-dom";
 import { AdminView } from "./pages/AdminView";
+import { ApartmentView } from "./pages/ApartmentView";
 import { HomeView } from "./pages/HomeView";
 import { RegisterView } from "./pages/RegisterView";
 import { UserProvider, useUserState } from "./pages/UserContext";
@@ -21,6 +22,7 @@ function App() {
               <Route path="/profile" element={<UserView />} />
               <Route path="/users/:userId" element={<UserView />} />
               <Route path="/admins/:adminId" element={<AdminView />} />
+              <Route path="/apartment/:apartmentId" element={<ApartmentView />} />
             </Routes>
           </BrowserRouter>
         </Wrapper>

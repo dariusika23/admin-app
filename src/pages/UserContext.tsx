@@ -1,24 +1,13 @@
 import { createContext, useContext, useState } from "react"
+import { User, UserState } from "../api/Models";
 
-interface UserObject {
-    id: string,
-    username: string,
-    email: string,
-    password: string,
-    isAdminChecked: boolean,
-    isUser: boolean
-}
 
-export interface UserState {
-    user: UserObject;
-    setUser: (user: UserObject) => void
-}
 
 export const UserContext = createContext<UserState>({} as any);
 export const useUserState = () => useContext(UserContext);
 
 export const UserProvider = (props: any) => {
-    const defaultUser = {id:"", username: "", email: "", password: "", isAdminChecked: false, isUser: true};
+    const defaultUser = {id:"", username: "", email: "", password: "", isAdminChecked: false};
     const [user, setUser] = useState(defaultUser);
 
     const userState = {

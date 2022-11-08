@@ -1,12 +1,8 @@
-import { useAsyncState } from "../api/Backend";
+import { TennantAssociation } from "../api/Models";
 
-export interface Association {
-    id: number,
-    name: string,
-    address: string
-}
 
-export const Association = (props: { associations: Association[] }) => {
+
+export const Association = (props: { associations: TennantAssociation[] }) => {
 
     const assocView = props.associations.map(as => {
         return <tr key={as.id}><td>{as.id}</td><td>{as.name}</td><td>{as.address}</td></tr>

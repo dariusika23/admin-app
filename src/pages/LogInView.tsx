@@ -1,24 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { login } from "../api/Backend";
 import { useUserState } from "./UserContext";
 
-async function login(username: string, password: string) {
-    const path = `http://localhost:5000/users?username=${username}&password=${password}`;
-
-    const response = await fetch(path, {
-        method: 'GET',
-        mode: 'cors',
-        cache: 'no-cache',
-        credentials: 'same-origin',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        redirect: 'follow',
-        referrerPolicy: 'no-referrer'
-    });
-
-    return response;
-}
 
 export const LogInView = () => {
     const [username, setUsername] = useState("");

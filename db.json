@@ -5,72 +5,37 @@
       "username": "admin",
       "email": "johndoe@example.com",
       "password": "admin",
-      "isUser": true,
-      "isAdminChecked": true
+      "isAdminChecked": true,
+      "tennantId": 1
     },
     {
       "id": "2",
-      "username": "John Snow",
+      "username": "John.Snow",
       "email": "johnsnow@example.com",
-      "isUser": true,
       "isAdminChecked": false,
-      "password": "snow123456"
-    },
-    {
-      "id": "3",
-      "username": "John Smith",
-      "email": "johnsmith@example.com",
-      "isAdminChecked": false,
-      "isUser": true,
-      "password": "superpassword123"
-    },
-    {
-      "username": "Darius",
-      "password": "darius.123",
-      "email": "darius.m@sam.com",
-      "isAdminChecked": false,
-      "createdAt": 1664189357959,
-      "isUser": true,
-      "id": "CpBomCJ"
-    },
-    {
-      "username": "admin1",
-      "password": "admin1",
-      "email": "admin1@123.com",
-      "isAdminChecked": true,
-      "createdAt": 1664283651738,
-      "isUser": true,
-      "id": "wWWADNi"
-    },
-    {
-      "username": "admin2",
-      "password": "admin2",
-      "email": "admin2@gam.com",
-      "isAdminChecked": true,
-      "createdAt": 1664283691366,
-      "isUser": true,
-      "id": "0-mIXnQ"
+      "password": "snow123456",
+      "tennantId": 2
     },
     {
       "username": "adm",
       "password": "adm",
       "email": "adm@aaaa.com",
-      "isUser": true,
       "isAdminChecked": false,
       "createdAt": 1664293134380,
-      "id": "D8lr5KH"
+      "id": "7",
+      "tennantId": 3
     }
   ],
   "admins": [
     {
-      "id": 1,
-      "username": "Admin Joe",
+      "id": "1",
+      "userId": "1",
       "email": "admin@gmail.com",
       "password": "1234"
     },
     {
-      "id": 2,
-      "username": "Admin Jane",
+      "id": "2",
+      "userId": "6",
       "email": "admina@gmail.com",
       "password": "1234"
     }
@@ -87,74 +52,6 @@
       "blockname": "560 B",
       "address": "Arad, Micalaca",
       "apartments": 10
-    }
-  ],
-  "apartments": [
-    {
-      "id": 1,
-      "blockid": 1,
-      "userid": 1,
-      "name": "Radulescu Ioan",
-      "personumber": 2,
-      "hotwater1": 213,
-      "hotwater2": 222,
-      "coldwater1": 200,
-      "coldwater2": 320,
-      "electricity": 123,
-      "trash": 12,
-      "adminsalary": 12,
-      "subscriptions": 13,
-      "intercom": 1,
-      "misc": 1234,
-      "repairs": 9,
-      "totalmonth": 1231455,
-      "remaining": 12,
-      "penalties": 10,
-      "total": 12131241412421
-    },
-    {
-      "id": 2,
-      "blockid": 1,
-      "userid": 2,
-      "name": "Chifu Ioan",
-      "personumber": 1,
-      "hotwater1": 213,
-      "hotwater2": 222,
-      "coldwater1": 200,
-      "coldwater2": 320,
-      "electricity": 123,
-      "trash": 12,
-      "adminsalary": 12,
-      "subscriptions": 13,
-      "intercom": 1,
-      "misc": 1234,
-      "repairs": 9,
-      "totalmonth": 1231455,
-      "remaining": 12,
-      "penalties": 10,
-      "total": 31241412421
-    },
-    {
-      "id": 3,
-      "blockid": 1,
-      "userid": 3,
-      "name": "Poler Jean",
-      "personumber": 4,
-      "hotwater1": 213,
-      "hotwater2": 222,
-      "coldwater1": 200,
-      "coldwater2": 320,
-      "electricity": 123,
-      "trash": 122,
-      "adminsalary": 12,
-      "subscriptions": 13,
-      "intercom": 1,
-      "misc": 1234,
-      "repairs": 9,
-      "totalmonth": 1231455,
-      "remaining": 12,
-      "penalties": 10,
-      "total": 12412421
     }
   ],
   "tenantAssociation": [
@@ -199,190 +96,123 @@
       "address": "ffff",
       "createdAt": 1666698867355,
       "id": 11
+    },
+    {
+      "name": "bloc 561",
+      "address": "str. Alba Iulia, nr. 11",
+      "createdAt": 1666951563929,
+      "id": 12
+    },
+    {
+      "name": "adm",
+      "address": "asda",
+      "createdAt": 1667924900122,
+      "id": 13
     }
   ],
   "apartment": [
     {
       "id": 1,
       "tenantAssociationId": 1,
-      "name": "Ap 3",
-      "ownerId": 1,
-      "personNumber": 1
+      "name": "ap. 9",
+      "ownerId": 3,
+      "coldwater1": 12312,
+      "coldwater2": 1312322,
+      "personNumber": 1,
+      "hotwater1": 1231,
+      "hotwater2": 0,
+      "trash": 12,
+      "adminsalary": 12,
+      "subscriptions": 13,
+      "intercom": 1,
+      "misc": 1234,
+      "repairs": 9,
+      "totalmonth": 1231455,
+      "remaining": 12,
+      "penalties": 10,
+      "total": 12131241412421,
+      "date": "Tue Nov 08 2022"
     },
     {
       "name": "dasda",
+      "tenantAssociationId": 2,
       "ownerId": 1,
       "createdAt": 1666714032679,
-      "id": 2
+      "id": 2,
+      "personNumber": 1,
+      "hotwater1": 21312,
+      "hotwater2": 123123,
+      "coldwater1": 1231213,
+      "coldwater2": 312312,
+      "trash": 12,
+      "adminsalary": 12,
+      "subscriptions": 13,
+      "intercom": 1,
+      "misc": 1234,
+      "repairs": 9,
+      "totalmonth": 1231455,
+      "remaining": 12,
+      "penalties": 10,
+      "total": 12131241412421,
+      "date": "Tue Nov 08 2022"
     },
     {
       "name": "dasdasdsadasdasdsad",
+      "tenantAssociationId": 3,
       "ownerId": 2,
       "createdAt": 1666714056350,
-      "id": 3
+      "id": 3,
+      "personNumber": 1,
+      "hotwater1": 213,
+      "hotwater2": 222,
+      "coldwater1": 200,
+      "coldwater2": 320,
+      "trash": 12,
+      "adminsalary": 12,
+      "subscriptions": 13,
+      "intercom": 1,
+      "misc": 1234,
+      "repairs": 9,
+      "totalmonth": 1231455,
+      "remaining": 12,
+      "penalties": 10,
+      "total": 12131241412421
     },
     {
-      "name": "new ap",
-      "ownerId": 2,
-      "createdAt": 1666715709023,
-      "id": 4
-    },
-    {
-      "name": "sasdadsa",
-      "ownerId": 2,
-      "createdAt": 1666715926957,
-      "id": 5
-    },
-    {
-      "name": "dassdasdasdsa",
-      "ownerId": "2",
-      "createdAt": 1666716047599,
-      "id": 6
-    },
-    {
-      "name": "asdasdasdasdasd",
-      "ownerId": 1,
-      "createdAt": 1666716634700,
-      "id": 7
-    },
-    {
-      "name": "new apartment 1",
-      "ownerId": 2,
-      "createdAt": 1666716748158,
-      "id": 8
-    },
-    {
-      "name": "ne ap",
-      "ownerId": 1,
-      "createdAt": 1666717496320,
-      "id": 9
-    },
-    {
-      "name": "dsadsa",
-      "ownerId": 1,
-      "createdAt": 1666717535583,
-      "id": 10
-    },
-    {
-      "name": "apartment",
-      "ownerId": 2,
-      "createdAt": 1666717546000,
-      "id": 11
-    },
-    {
-      "name": "amasr",
-      "ownerId": -1,
-      "createdAt": 1666717566736,
-      "id": 12
-    },
-    {
-      "name": "new apartment",
-      "ownerId": -1,
-      "createdAt": 1666717686288,
-      "id": 13
-    },
-    {
-      "name": "opartm",
-      "ownerId": -1,
-      "createdAt": 1666717706463,
-      "id": 14
-    },
-    {
-      "name": "home",
-      "ownerId": 1,
-      "createdAt": 1666717773705,
-      "id": 15
-    },
-    {
-      "name": "home",
-      "ownerId": 2,
-      "createdAt": 1666717788545,
-      "id": 16
-    },
-    {
-      "name": "adm",
-      "ownerId": 1,
-      "createdAt": 1666717812593,
-      "id": 17
-    },
-    {
-      "name": "new home",
-      "ownerId": -1,
-      "createdAt": 1666717886165,
-      "id": 18
-    },
-    {
-      "name": "new homi",
-      "ownerId": -1,
-      "createdAt": 1666718040962,
-      "id": 19
-    },
-    {
-      "name": "asdasdasdsasdas",
-      "ownerId": 2,
-      "createdAt": 1666718048592,
-      "id": 20
-    },
-    {
-      "name": "dasdasda",
-      "ownerId": 1,
-      "createdAt": 1666718113252,
-      "id": 21
-    },
-    {
-      "name": "dsadsadsa",
-      "ownerId": 2,
-      "createdAt": 1666718117747,
-      "id": 22
-    },
-    {
-      "name": "asdsadsa",
-      "ownerId": 1,
-      "createdAt": 1666718142293,
-      "id": 23
-    },
-    {
-      "name": "fgwgwegwegwegw",
-      "ownerId": 2,
-      "createdAt": 1666718155137,
-      "id": 24
-    },
-    {
-      "name": "asdasdadasdas",
-      "ownerId": -1,
-      "createdAt": 1666718162052,
-      "id": 25
-    },
-    {
-      "name": "asdasdadasdasdwqawfwegf23r231421q34123",
-      "ownerId": -1,
-      "createdAt": 1666718176930,
-      "id": 26
-    },
-    {
-      "name": "dasdasdaadsfqw122312312",
-      "ownerId": 1,
-      "createdAt": 1666718238006,
-      "id": 27
-    },
-    {
-      "name": "1231231321",
-      "ownerId": 2,
-      "createdAt": 1666718242183,
-      "id": 28
+      "name": "ap. 7",
+      "tenantAssociationId": 1,
+      "ownerId": 3,
+      "createdAt": 1666951583546,
+      "total": 1000,
+      "id": 4,
+      "misc": 12132,
+      "note": "this is a sample note sent from admin"
     }
   ],
   "tenant": [
     {
       "id": 1,
       "firstName": "John",
-      "lastName": "Doe"
+      "lastName": "Doe",
+      "photoUrl": "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
     },
     {
       "firstName": "Dave",
       "lastName": "Nan",
       "createdAt": 1666711651687,
-      "id": 2
+      "id": 2,
+      "photoUrl": "https://media.istockphoto.com/id/1319763830/photo/portrait-of-smiling-mixed-race-woman-looking-at-camera.jpg?b=1&s=170667a&w=0&k=20&c=3ZYMyDBhUeVwXGzn2uWvci0kLjEwpMiZROMYwC1TVoU="
+    },
+    {
+      "firstName": "Admin",
+      "lastName": "Joe",
+      "createdAt": 1666711651687,
+      "id": 3,
+      "photoUrl": "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
     }
-  ]
+  ],
+  "units": {
+    "mWh": 10,
+    "mc": 20
+  }
 }

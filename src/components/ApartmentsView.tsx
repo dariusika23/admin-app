@@ -7,7 +7,7 @@ export const ApartmentsView = (props: { apartments: Apartment[] }) => {
     const apartments = props.apartments;    
     const apartmentsView = apartments.map(ap => {
         const ownerName = owners.find(el => el.id === ap.ownerId);
-        return <tr key={ap.id}><td>{ap.id}</td><td>{ap.name}</td><td>{ownerName?.firstName} {ownerName?.lastName}</td></tr>
+        return <tr key={ap.id}><td>{ap.id}</td><td>{ap.name}</td><td>{ownerName?.firstName} {ownerName?.lastName}</td><td>{ap.coldwater1}</td><td>{ap.coldwater2}</td></tr>
     });
 
     return (
@@ -20,6 +20,8 @@ export const ApartmentsView = (props: { apartments: Apartment[] }) => {
                             <th scope="col">id</th>
                             <th scope="col">name</th>
                             <th scope="col">Owner</th>
+                            <th>ColdW1</th>
+                            <th>ColdW2</th>
                         </tr>
                     </thead>
                     <tbody>
