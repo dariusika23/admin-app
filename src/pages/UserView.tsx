@@ -1,5 +1,5 @@
 import { useAsyncState } from "../api/Backend"
-import { Apartment, Tennant } from "../api/Models"
+import { Apartment, Tennant, TennantAssociation, User } from "../api/Models"
 import { ApartmentCardView } from "../components/ApartmentCardView"
 import { ProtectedView } from "./ProtectedView"
 import { useUserState } from "./UserContext"
@@ -8,16 +8,19 @@ import { useEffect, useState } from "react"
 
 export const UserView = () => {
     const [apartments, reloadApartments] = useAsyncState<Apartment[]>("/apartment", []);
-    const { user } = useUserState();
+    const { user, setUser } = useUserState();
     const [selectedId, setSelectedApId] = useState<number>(0);
     const [tenants] = useAsyncState<Tennant[]>("/tenant", []);
+    const [tennantAsocs] = useAsyncState<TennantAssociation[]>("/tenantAssociation", []);
     const userNice = tenants.find(tn => user.tennantId === tn.id);
     const tennantsApartments: Apartment[] = apartments.filter(ap => ap.ownerId === user.tennantId);
+    const block = tennantAsocs.find(bl => bl.id === tennantsApartments[0].tenantAssociationId);
     const cards = tennantsApartments.map(el => <ApartmentCardView key={el.id} apartment={el}/>);
+
 
     return (
         <ProtectedView>
-            <UserDetailsSection userNice={userNice} />
+            <UserDetailsSection user={user} updateUser={setUser} userNice={userNice} tennantsApartments={tennantsApartments} block={block}/>
             <div className="row">
                 {cards}
             </div>

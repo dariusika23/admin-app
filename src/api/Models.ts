@@ -4,6 +4,7 @@ export interface User {
     email: string;
     password: string;
     isAdminChecked: boolean;
+    isActive: boolean;
     tennantId?: number
 }
 
@@ -49,8 +50,6 @@ export interface Tennant {
     firstName: string;
     lastName: string;
     photoUrl: string;
-    email?: string;
-    isAdminChecked?: boolean
 }
 
 export interface TennantAssociation {

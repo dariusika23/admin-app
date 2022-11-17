@@ -235,6 +235,10 @@ body {
   border-radius: 2rem;
 }
 
+.user-profile {
+	font-size: .77rem;
+}
+
 @media(min-width: 576px) {
 	.modal-dialog {
 		max-width: 700px;

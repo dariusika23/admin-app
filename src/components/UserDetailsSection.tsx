@@ -1,7 +1,24 @@
-import { Tennant } from "../api/Models"
+import { Link } from "react-router-dom";
+import { post } from "../api/Backend";
+import { Apartment, Tennant, TennantAssociation, User } from "../api/Models"
 
-export const UserDetailsSection = (props: { userNice?: Tennant }) => {
+export const UserDetailsSection = (props: { user: User, updateUser: (u: User) => void, userNice?: Tennant, tennantsApartments?: Apartment[], block?: TennantAssociation }) => {
+    
     const userNice = props.userNice;
+    const apartments = props.tennantsApartments;
+    const block = props.block;
+    const user = props.user;
+
+    console.log(user.isActive);
+
+    const handleDeactivate = (e:any) => {
+        e.preventDefault();
+        user.isActive = false;
+        props.updateUser(user);
+        console.log(user.isActive);
+        post(`/users/${user.id}`, user.id, user);
+        console.log(user);
+    }
     return (
         <>
             {/* <div classNameName="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -18,44 +35,42 @@ export const UserDetailsSection = (props: { userNice?: Tennant }) => {
                     </button>
                 </div>
             </div> */}
-                    <div className="row d-flex justify-content-left align-items-center py-5">
-                        <div className="col col-md-9 col-lg-7 col-xl-5">
-                            <div className="card" style={{borderRadius: "15px"}}>
-                                <div className="card-body p-4">
-                                    <div className="d-flex text-black">
-                                        <div className="flex-shrink-0 mr-3">
-                                            <img src={userNice?.photoUrl}
-                                                alt="Generic placeholder image" className="img-fluid"
-                                                style={{width: "180px", borderRadius: "10px"}} />
+            <div className="row d-flex justify-content-left align-items-center py-5">
+                <div className="col col-md-9 col-lg-7 col-xl-5">
+                    <div className="card" style={{ borderRadius: "15px" }}>
+                        <div className="card-body p-4">
+                            <div className="d-flex text-black">
+                                <div className="flex-shrink-0 mr-3">
+                                    <img src={userNice?.photoUrl} alt="avatar" className="rounded-circle img-fluid" style={{ width: "150px" }} />
+                                </div>
+                                <div className="flex-grow-1 ms-3">
+                                    <h5 className="mb-1">{userNice?.firstName} {userNice?.lastName}</h5>
+                                    <p className="mb-2 pb-1" style={{ color: "#2b2a2a" }}>{userNice?.username}</p>
+                                    <div className="d-flex justify-content-start rounded-3 p-2 mb-2"
+                                        style={{ backgroundColor: "#efefef" }}>
+                                        <div>
+                                            <p className="small text-muted mb-1">Address</p>
+                                            <p className="mb-0">{block?.address}</p>
                                         </div>
-                                        <div className="flex-grow-1 ms-3">
-                                            <h5 className="mb-1">{userNice?.firstName} {userNice?.lastName}</h5>
-                                            <p className="mb-2 pb-1" style={{color: "#2b2a2a"}}>{userNice?.username}</p>
-                                            <div className="d-flex justify-content-start rounded-3 p-2 mb-2"
-                                                style={{backgroundColor: "#efefef"}}>
-                                                <div>
-                                                    <p className="small text-muted mb-1">Address</p>
-                                                    <p className="mb-0">str. Bla bla</p>
-                                                </div>
-                                                <div className="px-3 ml-3">
-                                                    <p className="small text-muted mb-1">Apartments</p>
-                                                    <p className="mb-0">3</p>
-                                                </div>
-                                                {/* <div>
+                                        <div className="px-3 ml-3">
+                                            <p className="small text-muted mb-1">Apartments</p>
+                                            <p className="mb-0">{apartments?.at(0)?.id}</p>
+                                        </div>
+                                        {/* <div>
                                                     <p className="small text-muted mb-1">Rating</p>
                                                     <p className="mb-0">8.5</p>
                                                 </div> */}
-                                            </div>
-                                            <div className="d-flex pt-1">
-                                                <button type="button" className="btn btn-outline-primary me-1 flex-grow-1 mr-2">Edit</button>
-                                                <button type="button" className="btn btn-danger flex-grow-1">Delete</button>
-                                            </div>
-                                        </div>
+                                    </div>
+                                    <div className="d-flex pt-1">
+                                        <Link type="button" className="btn btn-primary me-1 flex-grow-1 mr-2" to="/profile">View Profile</Link>
+                                        <button type="button" className="btn btn-outline-danger flex-grow-1" onClick={handleDeactivate}>Deactivate</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
             {/* <section className="vh-100" style={{backgroundColor: "#9de2ff"}}>
             </section> */}
         </>

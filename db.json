@@ -6,14 +6,16 @@
       "email": "johndoe@example.com",
       "password": "admin",
       "isAdminChecked": true,
+      "isActive": true,
       "tennantId": 1
     },
     {
       "id": "2",
-      "username": "John.Snow",
+      "username": "jsnow",
       "email": "johnsnow@example.com",
       "isAdminChecked": false,
-      "password": "snow123456",
+      "isActive": false,
+      "password": "snow",
       "tennantId": 2
     },
     {
@@ -21,6 +23,7 @@
       "password": "adm",
       "email": "adm@aaaa.com",
       "isAdminChecked": false,
+      "isActive": true,
       "createdAt": 1664293134380,
       "id": "7",
       "tennantId": 3
@@ -197,11 +200,11 @@
       "photoUrl": "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
     },
     {
-      "firstName": "Dave",
-      "lastName": "Nan",
+      "firstName": "Jon",
+      "lastName": "Snow",
       "createdAt": 1666711651687,
       "id": 2,
-      "photoUrl": "https://media.istockphoto.com/id/1319763830/photo/portrait-of-smiling-mixed-race-woman-looking-at-camera.jpg?b=1&s=170667a&w=0&k=20&c=3ZYMyDBhUeVwXGzn2uWvci0kLjEwpMiZROMYwC1TVoU="
+      "photoUrl": "https://pbs.twimg.com/profile_images/3456602315/aad436e6fab77ef4098c7a5b86cac8e3.jpeg"
     },
     {
       "firstName": "Admin",
