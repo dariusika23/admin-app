@@ -1,6 +1,25 @@
 import { Link } from "react-router-dom";
 import { post } from "../api/Backend";
-import { Apartment, Tennant, TennantAssociation, User } from "../api/Models"
+import { Apartment, Tennant, TennantAssociation, User } from "../api/Models";
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend,
+  } from 'chart.js';
+import { Bar } from 'react-chartjs-2';
+
+ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend
+  );
 
 export const UserDetailsSection = (props: { user: User, updateUser: (u: User) => void, userNice?: Tennant, tennantsApartments?: Apartment[], block?: TennantAssociation }) => {
     
@@ -9,8 +28,6 @@ export const UserDetailsSection = (props: { user: User, updateUser: (u: User) =>
     const block = props.block;
     const user = props.user;
 
-    console.log(user.isActive);
-
     const handleDeactivate = (e:any) => {
         e.preventDefault();
         user.isActive = false;
@@ -18,7 +35,39 @@ export const UserDetailsSection = (props: { user: User, updateUser: (u: User) =>
         console.log(user.isActive);
         post(`/users/${user.id}`, user.id, user);
         console.log(user);
+    };
+
+    const options = {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top' as const
+            },
+            title: {
+                display: true,
+                text: 'Sumar cheltuieli apartamente'
+            }
+        }
+    };
+
+    const labels = apartments?.slice(0, apartments.length).map(ap => ap.name);
+    const data = {
+        labels,
+        datasets: [
+            {
+                label: 'Cold Water',
+                data: apartments?.map(ap => ap.coldwater1),
+                backgroundColor: 'rgba(255, 99, 132, 0.5)'
+            },
+            {
+                label: 'Hot Water',
+                data: apartments?.map(ap => ap.hotwater1),
+                backgroundColor: 'rgba(53, 162, 235, 0.5)'
+            }
+        ]
     }
+
+
     return (
         <>
             {/* <div classNameName="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -35,9 +84,9 @@ export const UserDetailsSection = (props: { user: User, updateUser: (u: User) =>
                     </button>
                 </div>
             </div> */}
-            <div className="row d-flex justify-content-left align-items-center py-5">
-                <div className="col col-md-9 col-lg-7 col-xl-5">
-                    <div className="card" style={{ borderRadius: "15px" }}>
+            <div className="row d-flex justify-content-left align-items-top py-5">
+                <div className="col col-md-9 col-lg-7 col-xl-5" id="userCard">
+                    <div className="card">
                         <div className="card-body p-4">
                             <div className="d-flex text-black">
                                 <div className="flex-shrink-0 mr-3">
@@ -67,6 +116,13 @@ export const UserDetailsSection = (props: { user: User, updateUser: (u: User) =>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="col" id="apartmentCard">
+                    <div className="card">
+                        <div className="card-body p-4">
+                            <Bar options={options} data={data} />
                         </div>
                     </div>
                 </div>

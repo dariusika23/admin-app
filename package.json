@@ -45,7 +45,9 @@
     ]
   },
   "devDependencies": {
+    "@types/chart.js": "^2.9.37",
     "@types/google.maps": "^3.50.4",
+    "@types/react-chartjs-2": "^2.5.7",
     "json-server": "^0.17.0",
     "nodemon": "^2.0.19"
   }

@@ -119,11 +119,11 @@
       "tenantAssociationId": 1,
       "name": "ap. 9",
       "ownerId": 3,
-      "coldwater1": 12312,
-      "coldwater2": 1312322,
+      "coldwater1": 432,
+      "coldwater2": 200,
       "personNumber": 1,
-      "hotwater1": 1231,
-      "hotwater2": 0,
+      "hotwater1": 100,
+      "hotwater2": 231,
       "trash": 12,
       "adminsalary": 12,
       "subscriptions": 13,
@@ -134,7 +134,7 @@
       "remaining": 12,
       "penalties": 10,
       "total": 12131241412421,
-      "date": "Tue Nov 08 2022"
+      "date": "Mon Nov 21 2022"
     },
     {
       "name": "dasda",
@@ -189,7 +189,9 @@
       "total": 1000,
       "id": 4,
       "misc": 12132,
-      "note": "this is a sample note sent from admin"
+      "note": "this is a sample note sent from admin",
+      "coldwater1": 123,
+      "hotwater1": 222
     }
   ],
   "tenant": [

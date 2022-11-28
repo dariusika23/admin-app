@@ -163,6 +163,10 @@ body {
 	height: 2.3rem;
 }
 
+.card {
+	border-radius: 15px;
+}
+
 .tennant-card {
 	width: 300px;
 }
