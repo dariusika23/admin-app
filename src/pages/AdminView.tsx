@@ -32,6 +32,7 @@ export const AdminView = () => {
 
 
             {/* <ApartmentView /> */}
+            {/* new comment */}
 
         </ProtectedView>
     )
