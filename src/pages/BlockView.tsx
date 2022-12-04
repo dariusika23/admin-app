@@ -5,6 +5,19 @@ import { ProtectedView } from "./ProtectedView"
 import { useUserState } from "./UserContext"
 import { useLocation } from "react-router-dom"
 import { useEffect } from "react"
+import DataTable, { ExpanderComponentProps } from "react-data-table-component"
+
+type DataRow = {
+    id: number,
+    name: string,
+    coldwater1: string,
+    coldwater2: string,
+    hotwater1: string,
+    hotwater2: string,
+    date: string
+}
+
+// https://react-data-table-component.netlify.app/?path=/story/expandable-basic--basic
 
 export const BlockView = () => {
     const { user } = useUserState();
@@ -29,7 +42,7 @@ export const BlockView = () => {
                 {/* <p>Total to pay: {apartment.total}</p> */}
             </div>
             {/* <UserForm onNewEvent={() => reloadApartment()} apartment={apartment} /> */}
-            <div className="table-responsive">
+            {/* <div className="table-responsive">
                 <table className="table table-striped table-sm">
                     <thead>
                         <tr>
@@ -46,7 +59,9 @@ export const BlockView = () => {
                         {displayAp}
                     </tbody>
                 </table>
-            </div>
+            </div> */}
+
+
         </ProtectedView>
     )
 }
