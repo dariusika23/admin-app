@@ -5,16 +5,29 @@ import { ProtectedView } from "./ProtectedView"
 import { useUserState } from "./UserContext"
 import { useLocation } from "react-router-dom"
 import { useEffect } from "react"
-import DataTable, { ExpanderComponentProps } from "react-data-table-component"
+import { CustomTable } from "../components/CustomTable"
+import { ExpanderComponentProps } from "react-data-table-component"
 
 type DataRow = {
-    id: number,
-    name: string,
-    coldwater1: string,
-    coldwater2: string,
-    hotwater1: string,
-    hotwater2: string,
-    date: string
+    id: number;
+    name: string;
+    coldwater1: string;
+    hotwater1: string;
+    hotwater2: string;
+};
+
+
+const ExpandedComponent: React.FC<ExpanderComponentProps<DataRow>> = ({ data }) => {
+    // return <pre>{JSON.stringify(data, null, 2)}</pre>;
+    return (
+        <>
+        <p>{data.id}</p>
+        <p>{data.name}</p>
+        <p>coldWater1: {data.coldwater1}</p>
+        <p>hotWater1: {data.hotwater1}</p>
+        <p>hotWater2: {data.hotwater2}</p>
+        </>
+    )
 }
 
 // https://react-data-table-component.netlify.app/?path=/story/expandable-basic--basic
@@ -29,7 +42,38 @@ export const BlockView = () => {
     const userNice = tenants.find(tn => user.tennantId === tn.id);
     const apartments = allApartments.filter(ap => ap.tenantAssociationId === block.id);
     const displayAp = apartments.map(ap => <tr key={ap.id}><td>{ap.id}</td><td>{ap.name}</td><td>{ap.coldwater1}</td><td>{ap.coldwater2}</td><td>{ap.hotwater1}</td><td>{ap.hotwater2}</td><td>{ap.date}</td></tr>)
-    // console.log(apartments);
+    console.log(apartments);
+    const columns = [
+        {
+            name: "Id",
+            selector: (row: any) => row.id,
+            sortable: true
+        },
+        {
+            name: "Name",
+            selector: (row: any) => row.name,
+            sortable: true
+        },
+        {
+            name: "Cold Water 1",
+            selector: (row: any) => row.coldwater1
+        },
+        {
+            name: "Cold Water 2",
+            selector: (row: any) => row.coldwater2
+        },
+        // {
+        //     name: "Hot Water 1",
+        //     selector: (row: any) => row.hotwater1
+        // },
+        // {
+        //     name: "Hot Water 2",
+        //     selector: (row: any) => row.hotwater2
+        // }        
+    ];
+
+    const data = apartments;
+
     useEffect(() => {
         reloadBlock();
         console.log(block);
@@ -60,6 +104,8 @@ export const BlockView = () => {
                     </tbody>
                 </table>
             </div> */}
+
+            <CustomTable columns={columns} data={data} selectableRows expandableRows expandableRowsComponent={ExpandedComponent}/>
 
 
         </ProtectedView>
