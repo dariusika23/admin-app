@@ -10,6 +10,26 @@ body {
 	height: 16px;
 }
 
+.violet {	
+	background: #453C67;
+}
+
+.light-violet {
+	background: #6D67E4;
+}
+
+.turquoise {
+	background: #46C2CB;
+}
+
+.yellow {
+	background: #F2F7A1;
+}
+
+.living-coral {
+	background: #fa7268;
+}
+
 /*
    * Sidebar
    */
@@ -50,11 +70,11 @@ body {
 
 .sidebar .nav-link .feather {
 	margin-right: 4px;
-	color: #727272;
+	color: #6D67E4;
 }
 
 .sidebar .nav-link.active {
-	color: #2470dc;
+	color: #46C2CB;
 }
 
 .sidebar .nav-link:hover .feather,
@@ -73,13 +93,18 @@ body {
 .navbar-brand {
 	padding-top: .75rem;
 	padding-bottom: .75rem;
-	background-color: rgba(0, 0, 0, .25);
+	background-color: #453C67;
+	color: #46C2CB;
 	box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
 }
 
 .navbar .navbar-toggler {
 	top: .25rem;
 	right: 1rem;
+}
+
+.navbar {
+	background-color: #3d355a;
 }
 
 .navbar .form-control {
@@ -163,8 +188,22 @@ body {
 	height: 2.3rem;
 }
 
+main {
+	overflow-x: hidden;
+}
+
 .card {
 	border-radius: 15px;
+	box-shadow: rgba(159, 162, 191, 0.18) 0px 9px 16px, rgba(159, 162, 191, 0.32) 0px 2px 2px;
+	overflow: hidden;
+}
+
+.card-row {
+	margin-right: -15px;
+	margin-left: -15px;
+	padding-left: 1.6rem;
+	background-color: #fff;
+	box-shadow: rgba(159, 162, 191, 0.18) 0px 9px 16px, rgba(159, 162, 191, 0.32) 0px 2px 2px;
 }
 
 .tennant-card {
@@ -208,8 +247,8 @@ body {
   -webkit-transition: all 1s;
   -o-transition: all 1s;
   transition: all 1s;
-  -webkit-border-radius: 0 !important;
-  border-radius: 0 !important;
+  -webkit-border-radius: 15px !important;
+  border-radius: 15px !important;
 }
 
 .card.map-card .card-body.closed {
@@ -242,6 +281,26 @@ body {
 .user-profile {
 	font-size: .77rem;
 }
+
+.text-black {
+	color: #000;
+}
+
+#apartmentCard .card-header {
+	background-color: #727272;
+	border-top-left-radius: inherit;
+	border-top-right-radius: inherit;
+}
+
+.round {
+	font-size: 1.25rem;
+	color: #fff;
+	padding: 13px 15px;
+	margin-right: 10px;
+	border-radius: 50%;
+}
+
+
 
 @media(min-width: 576px) {
 	.modal-dialog {

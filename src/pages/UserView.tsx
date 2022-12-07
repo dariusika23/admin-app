@@ -7,40 +7,24 @@ import { UserDetailsSection } from "../components/UserDetailsSection"
 import { useEffect, useState } from "react"
 
 export const UserView = () => {
-    const [apartments, reloadApartments] = useAsyncState<Apartment[]>("/apartment", []);
     const { user, setUser } = useUserState();
-    const [selectedId, setSelectedApId] = useState<number>(0);
-    const [tenants] = useAsyncState<Tennant[]>("/tenant", []);
     const [tennantAsocs] = useAsyncState<TennantAssociation[]>("/tenantAssociation", []);
-    const userNice = tenants.find(tn => user.tennantId === tn.id);
-    const tennantsApartments: Apartment[] = apartments.filter(ap => ap.ownerId === user.tennantId);
-    const block = tennantAsocs.find(bl => bl.id === tennantsApartments[0].tenantAssociationId);
-    const cards = tennantsApartments.map(el => <ApartmentCardView key={el.id} apartment={el}/>);
+    const [userNice] = useAsyncState<Tennant>(`/tenant/${user.tennantId}`, { id: 0, username: "", firstName: "", lastName: "", photoUrl: "" });
+    const [tennantsApartments] = useAsyncState<Apartment[]>(`/apartment?ownerId=${user.tennantId}`, []);
+    const block = tennantAsocs.find(b => b.id === tennantsApartments[0]?.tenantAssociationId);
+    const cards = tennantsApartments.map(el => <ApartmentCardView key={el.id} apartment={el} />);
 
 
     return (
         <ProtectedView>
-            <UserDetailsSection user={user} updateUser={setUser} userNice={userNice} tennantsApartments={tennantsApartments} block={block}/>
+            <div className="row d-flex align-items-center py-3 card-row">                
+                    <i className="fas fa-building-user turquoise round py-3"></i>                
+                    <h5 className="font-weight-bold">{block?.name}</h5>                
+            </div>
+            <UserDetailsSection user={user} updateUser={setUser} userNice={userNice} tennantsApartments={tennantsApartments} block={block} />
             <div className="row">
                 {cards}
             </div>
-            {/* <h2>Your expenses</h2>
-            <div className="table-responsive">
-                <table className="table table-striped table-sm">
-                    <thead>
-                        <tr>
-                            <th scope="col">Block No</th>
-                            <th scope="col">User No</th>
-                            <th scope="col">UserName</th>
-                            <th scope="col">Person No</th>
-                            <th scope="col">Total</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <ApartmentCardView apartmentId={1}/>
-                    </tbody>
-                </table>
-            </div> */}
         </ProtectedView>
 
     )

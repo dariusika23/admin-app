@@ -6,8 +6,8 @@ export const ApartmentsView = (props: { apartments: Apartment[] }) => {
     const [owners] = useAsyncState<Tennant[]>("/tenant", []);
     const apartments = props.apartments;    
     const apartmentsView = apartments.map(ap => {
-        const ownerName = owners.find(el => el.id === ap.ownerId);
-        return <tr key={ap.id}><td>{ap.id}</td><td>{ap.name}</td><td>{ownerName?.firstName} {ownerName?.lastName}</td><td>{ap.coldwater1}</td><td>{ap.coldwater2}</td></tr>
+        // const ownerName = owners.find(el => el.id === ap.ownerId);
+        // return <tr key={ap.id}><td>{ap.id}</td><td>{ap.name}</td><td>{ownerName?.firstName} {ownerName?.lastName}</td><td>{ap.coldwater1}</td><td>{ap.coldwater2}</td></tr>
     });
 
     return (
@@ -25,7 +25,7 @@ export const ApartmentsView = (props: { apartments: Apartment[] }) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {apartmentsView}
+                        {/* {apartmentsView} */}
                     </tbody>
                 </table>
             </div>

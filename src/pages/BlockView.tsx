@@ -4,31 +4,13 @@ import { UserForm } from "../components/UserForm"
 import { ProtectedView } from "./ProtectedView"
 import { useUserState } from "./UserContext"
 import { useLocation } from "react-router-dom"
-import { useEffect } from "react"
-import { CustomTable } from "../components/CustomTable"
+import { useEffect, useState } from "react"
+import DataTable from '../components/DataTableBase'
 import { ExpanderComponentProps } from "react-data-table-component"
-
-type DataRow = {
-    id: number;
-    name: string;
-    coldwater1: string;
-    hotwater1: string;
-    hotwater2: string;
-};
+import { Card } from "../components/Card"
 
 
-const ExpandedComponent: React.FC<ExpanderComponentProps<DataRow>> = ({ data }) => {
-    // return <pre>{JSON.stringify(data, null, 2)}</pre>;
-    return (
-        <>
-        <p>{data.id}</p>
-        <p>{data.name}</p>
-        <p>coldWater1: {data.coldwater1}</p>
-        <p>hotWater1: {data.hotwater1}</p>
-        <p>hotWater2: {data.hotwater2}</p>
-        </>
-    )
-}
+
 
 // https://react-data-table-component.netlify.app/?path=/story/expandable-basic--basic
 
@@ -36,13 +18,15 @@ export const BlockView = () => {
     const { user } = useUserState();
     const [unit] = useAsyncState<Units>("/units", { mWh: 0, mc: 0 });
     const [allApartments, reloadAllApartments] = useAsyncState<Apartment[]>("/apartment", []);
-    const [tenants] = useAsyncState<Tennant[]>("/tenant", []);
+    const [userNice] = useAsyncState<Tennant>(`/tenant/${user.tennantId}`, {id: 0, username: "", firstName: "", lastName: "", photoUrl: ""});
     const path = useLocation().pathname;
     const [block, reloadBlock] = useAsyncState<TennantAssociation>(path, { id: 0, name: "", address: "" });
-    const userNice = tenants.find(tn => user.tennantId === tn.id);
     const apartments = allApartments.filter(ap => ap.tenantAssociationId === block.id);
     const displayAp = apartments.map(ap => <tr key={ap.id}><td>{ap.id}</td><td>{ap.name}</td><td>{ap.coldwater1}</td><td>{ap.coldwater2}</td><td>{ap.hotwater1}</td><td>{ap.hotwater2}</td><td>{ap.date}</td></tr>)
     console.log(apartments);
+
+    const data = apartments;
+
     const columns = [
         {
             name: "Id",
@@ -62,17 +46,56 @@ export const BlockView = () => {
             name: "Cold Water 2",
             selector: (row: any) => row.coldwater2
         },
-        // {
-        //     name: "Hot Water 1",
-        //     selector: (row: any) => row.hotwater1
-        // },
-        // {
-        //     name: "Hot Water 2",
-        //     selector: (row: any) => row.hotwater2
-        // }        
+        {
+            name: "Hot Water 1",
+            selector: (row: any) => row.hotwater1
+        },
+        {
+            name: "Hot Water 2",
+            selector: (row: any) => row.hotwater2
+        }
     ];
 
-    const data = apartments;
+    const ExpandedComponent: React.FC<ExpanderComponentProps<Apartment>> = ({ data }) => {
+        // return <pre>{JSON.stringify(data, null, 2)}</pre>;
+        return (
+            <>
+                <div className="container py-3">
+                    <div className="row justify-content-center">
+                        <div className="col-12">
+                            {/* <p>{data.id}</p> */}
+                            <p>{data.name}</p>
+                        </div>
+                    </div>
+
+                    <div className="row justify-content-center">
+                        <div className="col-6">
+                            <p>coldWater1: {data.coldwater1}</p>
+                        </div>
+                        <div className="col-6">
+                            <p>coldWater2: {data.coldwater2}</p>
+                        </div>
+                    </div>
+
+                    <div className="row justify-content-center">
+                        <div className="col-6">
+                            <p>hotWater1: {data.hotwater1}</p>
+                        </div>
+                        <div className="col-6">
+                            <p>hotWater2: {data.hotwater2}</p>
+                        </div>
+                    </div>
+
+                    <div className="row justify-content-end">
+                        <button className="btn btn-primary mr-3">Modify</button>
+                        <button className="btn btn-danger">Delete</button>
+                    </div>
+
+                </div>
+            </>
+        )
+    };
+
 
     useEffect(() => {
         reloadBlock();
@@ -81,9 +104,15 @@ export const BlockView = () => {
 
     return (
         <ProtectedView>
-            <div className="d-flex flex-column justify-content-between flex-wrap flex-md-nowrap align-items-left pt-3 pb-2 mb-3">
-                <h2 className="h2">{block.name}</h2>
-                {/* <p>Total to pay: {apartment.total}</p> */}
+
+            <div className="row my-3">
+                <Card className="col-xs-12 col-md-6 mb-3">
+                    <h2 className="h2">{block.name}</h2>
+                </Card>
+
+                <Card className="col-xs-12 col-md-12">
+                    <DataTable columns={columns} data={data} selectableRows expandableRows expandableRowsComponent={ExpandedComponent} />
+                </Card>
             </div>
             {/* <UserForm onNewEvent={() => reloadApartment()} apartment={apartment} /> */}
             {/* <div className="table-responsive">
@@ -105,7 +134,6 @@ export const BlockView = () => {
                 </table>
             </div> */}
 
-            <CustomTable columns={columns} data={data} selectableRows expandableRows expandableRowsComponent={ExpandedComponent}/>
 
 
         </ProtectedView>

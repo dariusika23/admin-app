@@ -14,7 +14,7 @@
       "username": "jsnow",
       "email": "johnsnow@example.com",
       "isAdminChecked": false,
-      "isActive": false,
+      "isActive": true,
       "password": "snow",
       "tennantId": 2
     },
@@ -183,7 +183,7 @@
     },
     {
       "name": "ap. 7",
-      "tenantAssociationId": 1,
+      "tenantAssociationId": 0,
       "ownerId": 3,
       "createdAt": 1666951583546,
       "total": 1000,
@@ -191,7 +191,10 @@
       "misc": 12132,
       "note": "this is a sample note sent from admin",
       "coldwater1": 123,
-      "hotwater1": 222
+      "hotwater1": 222,
+      "coldwater2": 22,
+      "hotwater2": 33,
+      "date": "Wed Dec 07 2022"
     }
   ],
   "tenant": [

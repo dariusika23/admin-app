@@ -10,8 +10,7 @@ export const ProfileView = () => {
     const [apartments, reloadApartments] = useAsyncState<Apartment[]>("/apartment", []);
     const { user } = useUserState();
     const [selectedId, setSelectedApId] = useState<number>(0);
-    const [tenants] = useAsyncState<Tennant[]>("/tenant", []);
-    const userNice = tenants.find(tn => user.tennantId === tn.id);
+    const [userNice] = useAsyncState<Tennant>(`/tenant/${user.tennantId}`, {id: 0, username: "", firstName: "", lastName: "", photoUrl: ""});
     const tennantsApartments: Apartment[] = apartments.filter(ap => ap.ownerId === user.tennantId);
     const cards = tennantsApartments.map(el => <ApartmentCardView key={el.id} apartment={el} />);
 

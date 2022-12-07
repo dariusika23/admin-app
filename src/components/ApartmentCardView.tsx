@@ -11,9 +11,8 @@ export const ApartmentCardView = (props: {apartment: Apartment}) => {
     const [isClosed, setIsClosed] = useState("closed");
     const apartment = props.apartment;
     const apartmentPath = `/apartment/${apartment.id}`
-    const [owners] = useAsyncState<Tennant[]>("/tenant", []);
+    const [owner] = useAsyncState<Tennant>(`/tenant/${user.tennantId}`, {id: 0, username: "", firstName: "", lastName: "", photoUrl: ""});
     const [tennantAsocs] = useAsyncState<TennantAssociation[]>("/tenantAssociation", []);
-    const owner = owners.find(ow => ow.id === apartment.ownerId);
     const block = tennantAsocs.find(bl => bl.id === apartment.tenantAssociationId);
     const handleClick = () => {
         isClosed != "closed" ? setIsClosed("closed") : setIsClosed("");

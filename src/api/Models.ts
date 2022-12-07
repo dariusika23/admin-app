@@ -22,7 +22,7 @@ export interface Admin {
 
 export interface Apartment {
     id: number;
-    tenantAssociationId?: number;
+    tenantAssociationId: number;
     name?: string;
     ownerId?: number;
     personNumber?: number;

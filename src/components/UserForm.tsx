@@ -22,7 +22,7 @@ export const UserForm = (props: { onNewEvent: () => void, apartment: Apartment }
 
     const handleAdd = async (e: any) => {
         e.preventDefault();
-        const tempAp: Apartment = { id: 0 };
+        const tempAp: Apartment = { id: 0, tenantAssociationId: 0 };
         tempAp.coldwater1 = coldW1;
         tempAp.coldwater2 = coldW2;
         tempAp.hotwater1 = hotW1;

@@ -1,19 +1,40 @@
 import { Link, NavLink } from "react-router-dom"
+import { useAsyncState } from "../api/Backend";
+import { Tennant } from "../api/Models";
 import { useUserState } from "../pages/UserContext"
 
 export const Sidebar = () => {
-    const {user, setUser} = useUserState();
+    const { user, setUser } = useUserState();
+    const [userNice] = useAsyncState<Tennant>(`/tenant/${user.tennantId}`, {id: 0, username: "", firstName: "", lastName: "", photoUrl: ""});
     const displayLink = !user.isAdminChecked ? "d-none" : "";
     return (
         <nav id="sidebarMenu" className="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
             <div className="position-sticky pt-3 sidebar-sticky">
-                <ul className="nav flex-column">
+                <div className="col" id="sidebarUserCard">
+                    <div className="card">
+                        <div className="card-body p-4">
+                            <div className="d-flex flex-column text-black align-items-center">
+                                <div className="flex-grow-0">
+                                    <img src={userNice?.photoUrl} alt="avatar" className="rounded-circle img-fluid" style={{ width: "5.5em" }} />
+                                </div>
+                                <div className="flex-grow-1">
+                                    <h6 className="mt-2 mb-1">{userNice?.firstName} {userNice?.lastName}</h6>
+                                    <p className="text-center">{user.username}</p>
+                                    <Link to="/profile" className="text-black">
+                                        <p className="text-center">View profile</p>
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <ul className="nav flex-column mt-3">
                     <li className="nav-item">
                         {/* <a className="nav-link active" aria-current="page" href="#">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-home align-text-bottom" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
                             Dashboard
                         </a> */}
-                        <NavLink to="/" className={({isActive}) => "nav-link" + (!isActive ? "" : " active")} end aria-current="page">
+                        <NavLink to="/" className={({ isActive }) => "nav-link" + (!isActive ? "" : " active")} end aria-current="page">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-home align-text-bottom" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
                             Home
                         </NavLink>
@@ -23,19 +44,19 @@ export const Sidebar = () => {
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-file align-text-bottom" aria-hidden="true"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
                             Orders
                         </a> */}
-                        <NavLink to={"/admins/"+user.id} className={({isActive}) => "nav-link" + (!isActive ? " " : " active ") + displayLink} end>
+                        <NavLink to={"/admins/" + user.id} className={({ isActive }) => "nav-link" + (!isActive ? " " : " active ") + displayLink} end>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-file align-text-bottom" aria-hidden="true"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
                             Admin View
                         </NavLink>
                     </li>
                     <li className="nav-item">
-                    <NavLink to={"/users/"+user.id} className={({isActive}) => "nav-link" + (!isActive ? "" : " active")} end>
+                        <NavLink to={"/users/" + user.id} className={({ isActive }) => "nav-link" + (!isActive ? "" : " active")} end>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-file align-text-bottom" aria-hidden="true"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
                             User View
                         </NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink to={"/tenantAssociation/1"} className={({isActive}) => "nav-link" + (!isActive ? "" : " active")} end>
+                        <NavLink to={"/tenantAssociation/1"} className={({ isActive }) => "nav-link" + (!isActive ? "" : " active")} end>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-users align-text-bottom" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
                             Block view
                         </NavLink>
