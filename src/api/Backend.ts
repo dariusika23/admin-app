@@ -22,11 +22,30 @@ export async function get(path: string, token: string) {
 	return response;
 };
 
-export async function post(path: string, token: string, body: any) {
+export async function patchOrPost(path: string, token: string, body: any) {
 	const fullUrl = `${BACKEND_URL}${path}`;
 
 	const response = await fetch(fullUrl, {
 		method: body.id !== undefined && body.id !== null ? 'PATCH' : 'POST',
+		mode: 'cors',
+		cache: 'no-cache',
+		credentials: 'same-origin',
+		headers: {
+			'Content-Type': 'application/json',
+			'Authorization': token
+		},
+		redirect: 'follow',
+		referrerPolicy: 'no-referrer',
+        body: JSON.stringify(body)
+	});
+
+	return response;
+};
+export async function post(path: string, token: string, body: any) {
+	const fullUrl = `${BACKEND_URL}${path}`;
+
+	const response = await fetch(fullUrl, {
+		method: 'POST',
 		mode: 'cors',
 		cache: 'no-cache',
 		credentials: 'same-origin',

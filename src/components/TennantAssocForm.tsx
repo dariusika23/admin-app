@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { post } from "../api/Backend";
+import { patchOrPost } from "../api/Backend";
 import { useUserState } from "../pages/UserContext";
 
 export const TennantAsocForm = (props: {onNewEvent: () => void}) => {
@@ -9,7 +9,7 @@ export const TennantAsocForm = (props: {onNewEvent: () => void}) => {
 
     const handleAdd = async (e:any) => {
         e.preventDefault();
-        post('/tenantAssociation', user.id, {name: asocName, address: asocAddress});
+        patchOrPost('/tenantAssociation', user.id, {name: asocName, address: asocAddress});
         props.onNewEvent();
     } 
 

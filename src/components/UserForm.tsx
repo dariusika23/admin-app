@@ -22,7 +22,7 @@ export const UserForm = (props: { onNewEvent: () => void, apartment: Apartment }
 
     const handleAdd = async (e: any) => {
         e.preventDefault();
-        const tempAp: Apartment = { id: 0, tenantAssociationId: 0 };
+        const tempAp: Apartment = { id: props.apartment.id ?? 0, tenantAssociationId: props.apartment.tenantAssociationId ?? 0};
         tempAp.coldwater1 = coldW1;
         tempAp.coldwater2 = coldW2;
         tempAp.hotwater1 = hotW1;
@@ -32,30 +32,33 @@ export const UserForm = (props: { onNewEvent: () => void, apartment: Apartment }
         props.onNewEvent();
     }
 
+    // TO-DO: Add multiple instances of an apartment: id - unique, apId - same,  to add different dates
+
     return (
         <>
-            <div className="row g-5 mb-5">
+            <div className="row pb-3">
                 <div className="col">
-                    <h4 className="mb-4">Add new indexes</h4>
-                    <h6 className="mb-3">Metrics</h6>
-                    <p className="mb-4">mWh: {unit.mWh} lei, mc: {unit.mc} lei</p>
+                    <h4 className="mb-4 font-weight-bold">Add new indexes</h4>
+                    <h6 className="mb-3">Date: {new Date(Date.now()).toDateString()}</h6>
+                    {/* <h6 className="mb-3">Metrics</h6> */}
+                    {/* <p className="mb-4">mWh: {unit.mWh} lei, mc: {unit.mc} lei</p> */}
                     <form action="">
                         <div className="row mb-3">
-                            <div className="col-xs-12 col-sm-2">
+                            <div className="col-xs-12 col-sm-4">
                                 <label htmlFor="firstName" className="form-label">Cold Water 1</label>
                                 <input type="text" name="firstName" id="firstName" className="form-control" value={coldW1} onChange={e => setColdW1(parseInt(e.target.value))} />
                             </div>
-                            <div className="col-xs-12 col-sm-2">
+                            <div className="col-xs-12 col-sm-4">
                                 <label htmlFor="lastName" className="form-label">Cold Water 2</label>
                                 <input type="text" name="lastName" id="lastName" className="form-control" value={coldW2} onChange={e => setColdW2(parseInt(e.target.value))} />
                             </div>
                         </div>
                         <div className="row">
-                            <div className="col-xs-12 col-sm-2">
+                            <div className="col-xs-12 col-sm-4">
                                 <label htmlFor="firstName" className="form-label">Hot Water 1</label>
                                 <input type="text" name="firstName" id="firstName" className="form-control" value={hotW1} onChange={e => setHotW1(parseInt(e.target.value))} />
                             </div>
-                            <div className="col-xs-12 col-sm-2">
+                            <div className="col-xs-12 col-sm-4">
                                 <label htmlFor="lastName" className="form-label">Hot Water 2</label>
                                 <input type="text" name="lastName" id="lastName" className="form-control" value={hotW2} onChange={e => setHotW2(parseInt(e.target.value))} />
                             </div>

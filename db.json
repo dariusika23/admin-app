@@ -183,7 +183,7 @@
     },
     {
       "name": "ap. 7",
-      "tenantAssociationId": 0,
+      "tenantAssociationId": 1,
       "ownerId": 3,
       "createdAt": 1666951583546,
       "total": 1000,
@@ -193,7 +193,7 @@
       "coldwater1": 123,
       "hotwater1": 222,
       "coldwater2": 22,
-      "hotwater2": 33,
+      "hotwater2": 52312,
       "date": "Wed Dec 07 2022"
     }
   ],

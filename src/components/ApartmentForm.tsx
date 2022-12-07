@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { post, useAsyncState } from "../api/Backend";
+import { patchOrPost, useAsyncState } from "../api/Backend";
 import { Tennant } from "../api/Models";
 import { useUserState } from "../pages/UserContext";
 
@@ -19,7 +19,7 @@ export const ApartmentForm = (props: { onNewEvent: () => void }) => {
 
     const handleAdd = (e: any) => {
         e.preventDefault();
-        post('/apartment', user.id, { name: apName, ownerId: ownerId });
+        patchOrPost('/apartment', user.id, { name: apName, ownerId: ownerId });
         setApName("");
         setTennantAssocId("");
         props.onNewEvent();

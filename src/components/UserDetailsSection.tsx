@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { post } from "../api/Backend";
+import { patchOrPost } from "../api/Backend";
 import { Apartment, Tennant, TennantAssociation, User } from "../api/Models";
 import {
     Chart as ChartJS,
@@ -88,7 +88,7 @@ export const UserDetailsSection = (props: { user: User, updateUser: (u: User) =>
         user.isActive = false;
         props.updateUser(user);
         console.log(user.isActive);
-        post(`/users/${user.id}`, user.id, user);
+        patchOrPost(`/users/${user.id}`, user.id, user);
         console.log(user);
     };
     const options = {

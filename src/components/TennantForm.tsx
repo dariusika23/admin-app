@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { post } from "../api/Backend";
+import { patchOrPost } from "../api/Backend";
 import { useUserState } from "../pages/UserContext";
 
 export const TennantForm = (props: {onNewEvent: () => void}) => {
@@ -10,7 +10,7 @@ export const TennantForm = (props: {onNewEvent: () => void}) => {
 
     const handleAdd = async (e:any) => {
         e.preventDefault();
-        post('/tenant', user.id, {firstName: tenFirstName, lastName: tenLastName, personNumber: personNo});
+        patchOrPost('/tenant', user.id, {firstName: tenFirstName, lastName: tenLastName, personNumber: personNo});
         setTenFirstName("");
         setTenLastName("");
         setPersonNo("");

@@ -27,14 +27,15 @@ export const ApartmentView = () => {
                         <i className="fas fa-file-invoice living-coral round"></i>
                         <h5>{apartment.name}</h5>
                     </div>
-                    <h3 className="text-center font-weight-bold">Total to pay: {apartment.total}</h3>
+                    {/* <h3 className="text-center font-weight-bold">Total to pay: {apartment.total}</h3> */}
+
                 </Card>
             </div>
             <div className="row my-3">
-                <Card className="col-xs-12 col-6">
+                <Card className="col-xs-12 col-4">
                     <UserForm onNewEvent={() => reloadApartment()} apartment={apartment} />
                 </Card>
-                <Card className="col-xs-12 col-6">
+                <Card className="col-xs-12 col-8">
                     <div className="table-responsive">
                         <table className="table table-striped table-sm">
                             <thead>
