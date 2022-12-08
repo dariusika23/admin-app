@@ -17,7 +17,6 @@ export const TennantAsocForm = (props: {onNewEvent: () => void}) => {
         <>
             <div className="row g-5 mb-5">
                 <div className="col">
-                    <h4 className="mb-3">Add new tennant association</h4>
                     <form action="">
                         <div className="row d-flex align-items-end justify-content-between">
                             <div className="col-xs-12 col-sm-2">

@@ -36,35 +36,35 @@ export const UserDetailsSection = (props: { user: User, updateUser: (u: User) =>
         if (item.coldwater1 !== undefined) {
             return total + item.coldwater1;
         } else {
-            return 0;
+            return total + 0;
         }
     }, 0);
     const coldWaterTotal2 = apartments?.reduce((total, item) => {
         if (item.coldwater2 !== undefined) {
             return total + item.coldwater2;
         } else {
-            return 0;
+            return total + 0;
         }
     }, 0);
     const hotWaterTotal1 = apartments?.reduce((total, item) => {
         if (item.hotwater1 !== undefined) {
             return total + item.hotwater1;
         } else {
-            return 0;
+            return total + 0;
         }
     }, 0);
     const hotWaterTotal2 = apartments?.reduce((total, item) => {
         if (item.hotwater2 !== undefined) {
             return total + item.hotwater2;
         } else {
-            return 0;
+            return total + 0;
         }
     }, 0);
     const total = apartments?.reduce((total, item) => {
         if (item.total !== undefined) {
             return total + item.total;
         } else {
-            return 0
+            return total + 0;
         }
     }, 0);
 

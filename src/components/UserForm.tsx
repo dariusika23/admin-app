@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { post, useAsyncState } from "../api/Backend";
+import { patchOrPost, post, useAsyncState } from "../api/Backend";
 import { Apartment, Units } from "../api/Models";
 import { useUserState } from "../pages/UserContext";
 
@@ -28,7 +28,7 @@ export const UserForm = (props: { onNewEvent: () => void, apartment: Apartment }
         tempAp.hotwater1 = hotW1;
         tempAp.hotwater2 = hotW2;
         tempAp.date = new Date(Date.now()).toDateString();
-        post(path, user.id, tempAp);
+        patchOrPost(path, user.id, tempAp);
         props.onNewEvent();
     }
 

@@ -1,11 +1,13 @@
-import { TennantAssociation } from "../api/Models";
+import { Apartment, TennantAssociation } from "../api/Models";
 
 
 
-export const Association = (props: { associations: TennantAssociation[] }) => {
-
+export const Association = (props: { associations: TennantAssociation[], apartments: Apartment[] }) => {
+    const associations = props.associations;
+    const allApartments = props.apartments;
     const assocView = props.associations.map(as => {
-        return <tr key={as.id}><td>{as.id}</td><td>{as.name}</td><td>{as.address}</td></tr>
+        const apartmentsNo = allApartments.filter(a => a.tenantAssociationId === as.id).length;
+        return <tr key={as.id}><td>{as.id}</td><td>{as.name}</td><td>{apartmentsNo}</td><td>{as.address}</td></tr>
     });
 
     return (
@@ -17,7 +19,8 @@ export const Association = (props: { associations: TennantAssociation[] }) => {
                         <tr>
                             <th scope="col">id</th>
                             <th scope="col-2">Name</th>
-                            <th scope="col-9">Address</th>
+                            <th scope="col-2">Apartments</th>
+                            <th scope="col-7">Address</th>
                         </tr>
                     </thead>
                     <tbody>

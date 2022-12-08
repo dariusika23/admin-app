@@ -207,7 +207,7 @@ main {
 }
 
 .tennant-card {
-	width: 300px;
+	max-width: 300px;
 }
 
 .tennant-card .card-img-top {
