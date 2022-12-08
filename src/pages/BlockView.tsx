@@ -22,8 +22,7 @@ export const BlockView = () => {
     const path = useLocation().pathname;
     const [block, reloadBlock] = useAsyncState<TennantAssociation>(path, { id: 0, name: "", address: "" });
     const apartments = allApartments.filter(ap => ap.tenantAssociationId === block.id);
-    const displayAp = apartments.map(ap => <tr key={ap.id}><td>{ap.id}</td><td>{ap.name}</td><td>{ap.coldwater1}</td><td>{ap.coldwater2}</td><td>{ap.hotwater1}</td><td>{ap.hotwater2}</td><td>{ap.date}</td></tr>)
-    console.log(apartments);
+    
 
     const data = apartments;
 
@@ -61,14 +60,14 @@ export const BlockView = () => {
         return (
             <>
                 <div className="container py-3">
-                    <div className="row justify-content-center">
+                    <div className="row">
                         <div className="col-12">
                             {/* <p>{data.id}</p> */}
                             <p>{data.name}</p>
                         </div>
                     </div>
 
-                    <div className="row justify-content-center">
+                    <div className="row">
                         <div className="col-6">
                             <p>coldWater1: {data.coldwater1}</p>
                         </div>
@@ -77,7 +76,7 @@ export const BlockView = () => {
                         </div>
                     </div>
 
-                    <div className="row justify-content-center">
+                    <div className="row">
                         <div className="col-6">
                             <p>hotWater1: {data.hotwater1}</p>
                         </div>
@@ -86,10 +85,10 @@ export const BlockView = () => {
                         </div>
                     </div>
 
-                    <div className="row justify-content-end">
+                    {/* <div className="row justify-content-end">
                         <button className="btn btn-primary mr-3">Modify</button>
                         <button className="btn btn-danger">Delete</button>
-                    </div>
+                    </div> */}
 
                 </div>
             </>
@@ -114,25 +113,6 @@ export const BlockView = () => {
                     <DataTable columns={columns} data={data} selectableRows expandableRows expandableRowsComponent={ExpandedComponent} />
                 </Card>
             </div>
-            {/* <UserForm onNewEvent={() => reloadApartment()} apartment={apartment} /> */}
-            {/* <div className="table-responsive">
-                <table className="table table-striped table-sm">
-                    <thead>
-                        <tr>
-                            <th>no</th>
-                            <th>name</th>
-                            <th>ColdW1</th>
-                            <th>ColdW2</th>
-                            <th>HotW1</th>
-                            <th>HotW2</th>
-                            <th>Date</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {displayAp}
-                    </tbody>
-                </table>
-            </div> */}
 
 
 

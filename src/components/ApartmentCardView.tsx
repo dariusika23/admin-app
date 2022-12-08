@@ -41,10 +41,10 @@ export const ApartmentCardView = (props: {apartment: Apartment}) => {
                                 <div className="d-flex justify-content-between pt-2 mt-1 text-center text-uppercase living-coral-text">
                                     <div>
 
-                                        <a href="" className="mb-0 living-coral-text">
+                                        <Link to="/" className="mb-0 living-coral-text">
                                             <i className="fas fa-file-invoice fa-lg mb-3"></i><br />
-                                            Vezi Factura
-                                        </a>
+                                            View Bill
+                                        </Link>
                                     </div>
                                     {/* <div>
                                         <i className="fas fa-cat fa-lg mb-3"></i>

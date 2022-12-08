@@ -12,22 +12,27 @@ body {
 
 .violet {	
 	background: #453C67;
+	color: #fff;
 }
 
 .light-violet {
 	background: #6D67E4;
+	color: #fff;
 }
 
 .turquoise {
 	background: #46C2CB;
+	color: #fff;
 }
 
 .yellow {
 	background: #F2F7A1;
+	color: #453C67;
 }
 
 .living-coral {
 	background: #fa7268;
+	color: #fff;
 }
 
 /*

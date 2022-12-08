@@ -21,7 +21,7 @@ function App() {
             <Routes>
               <Route path="/" element={<HomeView />} />
               <Route path="/register" element={<RegisterView />} />
-              <Route path="/profile" element={<ProfileView />} />
+              <Route path="/profile/:userId" element={<ProfileView />} />
               <Route path="/users/:userId" element={<UserView />} />
               <Route path="/admins/:adminId" element={<AdminView />} />
               <Route path="/apartment/:apartmentId" element={<ApartmentView />} />

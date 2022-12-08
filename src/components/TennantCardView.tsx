@@ -22,7 +22,8 @@ export const TennantCardView = (props: {tenant: Tennant, users: User[], apartmen
                         {apartments}
                     </ul>
                     <div className="d-flex">
-                        <Link to={"/users/" + user?.id} className="btn btn-primary flex-grow-1">View</Link>
+                        <Link to={"/users/" + user?.id} className="btn turquoise flex-grow-1">View</Link>
+                        <Link to={"/profile/" + user?.id} className="btn living-coral flex-grow-1">Edit Profile</Link>
 
                     </div>
                         {/* <Link to="" className="btn btn-danger">Deactivate</Link> */}

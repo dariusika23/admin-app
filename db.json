@@ -23,7 +23,7 @@
       "password": "adm",
       "email": "adm@aaaa.com",
       "isAdminChecked": false,
-      "isActive": true,
+      "isActive": false,
       "createdAt": 1664293134380,
       "id": "7",
       "tennantId": 3
@@ -67,6 +67,12 @@
       "address": "str. Alba Iulia, nr. 11",
       "createdAt": 1666951563929,
       "id": 12
+    },
+    {
+      "name": "bloc j3",
+      "address": "adress block",
+      "createdAt": 1670506188597,
+      "id": 13
     }
   ],
   "apartment": [
@@ -170,14 +176,22 @@
       "hotwater1": 222,
       "hotwater2": 31,
       "date": "Thu Dec 08 2022"
+    },
+    {
+      "name": "12",
+      "ownerId": 2,
+      "tenantAssociationId": 6,
+      "createdAt": 1670506204451,
+      "id": 7
     }
   ],
   "tenant": [
     {
       "id": 1,
       "firstName": "Dany",
-      "lastName": "Tar",
-      "photoUrl": "https://pbs.twimg.com/profile_images/1117967801652617216/i8PWXebo_400x400.jpg"
+      "lastName": "Targ",
+      "photoUrl": "https://pbs.twimg.com/profile_images/1117967801652617216/i8PWXebo_400x400.jpg",
+      "username": ""
     },
     {
       "firstName": "Jon",

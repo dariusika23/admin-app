@@ -20,7 +20,7 @@ export const Sidebar = () => {
                                 <div className="flex-grow-1">
                                     <h6 className="mt-2 mb-1">{userNice?.firstName} {userNice?.lastName}</h6>
                                     <p className="text-center">{user.username}</p>
-                                    <Link to="/profile" className="text-black">
+                                    <Link to={"/profile/"+user.id} className="text-black">
                                         <p className="text-center">View profile</p>
                                     </Link>
                                 </div>

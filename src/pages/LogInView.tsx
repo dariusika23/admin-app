@@ -20,9 +20,8 @@ export const LogInView = () => {
 
         const body = await result.json();
         if (body.length > 0) {
-            setMessage("User logged in");
+            setMessage("This account has been deactivated. Please contact your admin.");
             setUser(body[0]);
-            console.log(user);
         } else {
             setMessage("Invalid username or password");
         }
